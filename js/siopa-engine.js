@@ -27,8 +27,9 @@ function Siopa(startID){
 			var entityRect = element.getBoundingClientRect();
 			var menuRect = menu.getBoundingClientRect();
 
-			menu.style.left = entityRect.left + .5*(entityRect.width - menuRect.width);
-			menu.style.top = entityRect.top + .5*(entityRect.height - menuRect.height);
+			menu.style.left = event.clientX - .5*menuRect.width;
+			//menu.style.top = event.clientY - .5*menuRect.height;
+			menu.style.top = event.clientY;
 
 			siopa.menu = menu;
 		}
