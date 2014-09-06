@@ -1,0 +1,24 @@
+html,body{
+	background: black;
+}
+
+#sceneBox{
+	color: #bbb;
+	font: 18pt arial;
+	height: 80%;
+	margin: 50px auto;
+	padding: 1px 30px;
+	width: 70%;
+}
+
+scene{
+	display: none;
+}
+
+action{
+	color: #449;
+	cursor: pointer;
+}
+action:hover{
+	color: #44c;
+}

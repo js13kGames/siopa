@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/siopa-engine.css">
+	</head>
+	<body>
+		<scene id="firstRoom">
+			<p>You're standing in a room.</p>	
+			<p>You can <action to="secondRoom">go to another room</action>.</p>
+		</scene>
+
+		<scene id="secondRoom">
+			<p>You're in another room.</p>
+		</scene>
+
+		<script src="js/siopa-engine.js"></script>
+		<script>
+			function load(){
+				new Siopa('firstRoom');
+			}
+
+			if(window.addEventListener){
+				window.addEventListener('load', load)
+			}else if(window.attachEvent){
+				window.attachEvent('onload',c);
+			}
+		</script>
+	</body>
+</html>
