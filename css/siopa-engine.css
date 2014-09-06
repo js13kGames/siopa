@@ -34,6 +34,7 @@ entityMenu{
 }
 entityMenuItem{
 	background: #334;
+	border-bottom: 1px solid #223;
 	color: #889;
 	cursor: pointer;
 	display: block;
@@ -43,4 +44,7 @@ entityMenuItem{
 }
 entityMenuItem:hover{
 	background: #556;
+}
+entityMenuItem:last-child{
+	border-bottom: none;
 }
