@@ -19,6 +19,16 @@ function Siopa(startID){
 			var menu = document.createElement('entityMenu');
 			for(var i = 0; i < actions.length; i++){
 				var action = actions[i];
+
+				var on = action.getAttribute('on');
+				if(on && !siopa.states[on]){
+					continue;
+				}
+				var off = action.getAttribute('off');
+				if(off && siopa.states[off]){
+					continue;
+				}
+
 				var item = document.createElement('entityMenuItem');
 				item.action = action;
 				item.innerHTML = action.innerHTML;
@@ -30,7 +40,6 @@ function Siopa(startID){
 			var menuRect = menu.getBoundingClientRect();
 
 			menu.style.left = event.clientX - .5*menuRect.width;
-			//menu.style.top = event.clientY - .5*menuRect.height;
 			menu.style.top = event.clientY;
 
 			siopa.menu = menu;
@@ -38,6 +47,16 @@ function Siopa(startID){
 
 		if(element.tagName.toLowerCase() == 'entitymenuitem'){
 			var action = element.action;
+
+			var show = action.getAttribute('show');
+			var texts = siopa.sceneBox.getElementsByTagName('actionText');
+			for(var i = 0; i < texts.length; i++){
+				if(texts[i].getAttribute('name') == show){
+					texts[i].style.display = 'block';
+				}else{
+					texts[i].style.display = 'none';
+				}
+			}
 
 			var turnon = action.getAttribute('turnon');
 			if(turnon){

@@ -28,6 +28,12 @@ action{
 	display: none;
 }
 
+actionText{
+	color: #999;
+	display: none;
+	font-size: 14pt;
+}
+
 entityMenu{
 	display: block;
 	position: absolute;
