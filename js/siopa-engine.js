@@ -38,6 +38,7 @@ function Siopa(startID){
 
 		if(element.tagName.toLowerCase() == 'entitymenuitem'){
 			var action = element.action;
+
 			var turnon = action.getAttribute('turnon');
 			if(turnon){
 				siopa.states[turnon] = true;
@@ -46,6 +47,8 @@ function Siopa(startID){
 			if(turnoff){
 				siopa.states[turnoff] = false;
 			}
+			siopa.updateRequireBlocks();
+
 			var to = action.getAttribute('goto');
 			if(to){
 				siopa.activateScene(to);
@@ -64,7 +67,9 @@ function Siopa(startID){
 Siopa.prototype.activateScene = function(sceneID){
 	var scene = document.getElementById(sceneID);
 	this.sceneBox.innerHTML = scene.innerHTML;
-	
+	this.updateRequireBlocks();
+};
+Siopa.prototype.updateRequireBlocks = function(){
 	var requires = this.sceneBox.getElementsByTagName('require');
 	for(var i = 0; i < requires.length; i++){
 		var require = requires[0];
@@ -78,7 +83,7 @@ Siopa.prototype.activateScene = function(sceneID){
 			require.style.display = 'block';
 		}
 	}
-};
+}
 Siopa.prototype.clearMenu = function(){
 	if(this.menu){
 		document.body.removeChild(this.menu);
