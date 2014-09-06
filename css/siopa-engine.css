@@ -1,9 +1,10 @@
 html,body{
-	background: black;
+	background: #001;
 }
 
 #sceneBox{
 	color: #bbb;
+	cursor: default;
 	font: 18pt arial;
 	height: 80%;
 	margin: 50px auto;
@@ -11,21 +12,35 @@ html,body{
 	width: 70%;
 }
 
-#eventBox{
-	font: 14pt arial;
-}
-
 scene{
 	display: none;
 }
 
-action{
+entity{
 	color: #449;
 	cursor: pointer;
 }
-action:hover{
+entity:hover{
 	color: #44c;
 }
-actionText{
+
+action{
 	display: none;
+}
+
+entityMenu{
+	display: block;
+	position: absolute;
+}
+entityMenuItem{
+	background: #334;
+	color: #889;
+	cursor: pointer;
+	display: block;
+	font: 14pt arial;
+	padding: 5px 10px;
+	text-align: center;
+}
+entityMenuItem:hover{
+	background: #556;
 }

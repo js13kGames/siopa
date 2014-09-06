@@ -6,7 +6,12 @@
 	<body>
 		<scene id="firstRoom">
 			<p>You're standing in a room.</p>	
-			<p>You can <action to="secondRoom">go to another room</action>.</p>
+			<p>You see
+				<entity>another room
+					<action to="secondRoom">Go into room</action>
+					<action>Look into room</action>
+				</entity>
+			down the hall.</p>
 		</scene>
 
 		<scene id="secondRoom">

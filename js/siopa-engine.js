@@ -7,27 +7,55 @@ function Siopa(startID){
 	this.sceneBox.id = 'sceneBox';
 	document.body.appendChild(this.sceneBox);
 	
-	document.querySelector('body').addEventListener('click', function(event){
+	document.body.addEventListener('click', function(event){
 		var element = event.target;
-		if(event.target.tagName.toLowerCase() == 'action'){
-			var to = element.getAttribute('to');
+
+		siopa.clearMenu();
+
+		if(element.tagName.toLowerCase() == 'entity'){
+			var actions = element.getElementsByTagName('action');
+			var menu = document.createElement('entityMenu');
+			for(var i = 0; i < actions.length; i++){
+				var action = actions[i];
+				var item = document.createElement('entityMenuItem');
+				item.action = action;
+				item.innerHTML = action.innerHTML;
+				menu.appendChild(item);
+			}
+			document.body.appendChild(menu);
+
+			var entityRect = element.getBoundingClientRect();
+			var menuRect = menu.getBoundingClientRect();
+
+			menu.style.left = entityRect.left + .5*(entityRect.width - menuRect.width);
+			menu.style.top = entityRect.top + .5*(entityRect.height - menuRect.height);
+
+			siopa.menu = menu;
+		}
+
+		if(element.tagName.toLowerCase() == 'entitymenuitem'){
+			var to = element.action.getAttribute('to');
 			if(to){
 				siopa.activateScene(to);
 			}
-			var text = element.getElementsByTagName('actionText')[0];
-			siopa.eventBox.innerHTML = text.innerHTML;
+		}
+	});
+
+	document.body.addEventListener('keydown', function(event){
+		if(event.keyCode == 27){
+			siopa.clearMenu();
 		}
 	});
 
 	this.activateScene(startID);
 }
 Siopa.prototype.activateScene = function(sceneID){
-	var siopa = this;
 	var scene = document.getElementById(sceneID);
 	this.sceneBox.innerHTML = scene.innerHTML;
-
-	this.eventBox = document.createElement('div')
-	this.eventBox.id = 'eventBox';
-	this.sceneBox.appendChild(this.eventBox);
 };
-
+Siopa.prototype.clearMenu = function(){
+	if(this.menu){
+		document.body.removeChild(this.menu);
+		this.menu = null;
+	}
+};
