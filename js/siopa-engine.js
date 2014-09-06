@@ -6,6 +6,8 @@ function Siopa(startID){
 	this.sceneBox = document.createElement('div');
 	this.sceneBox.id = 'sceneBox';
 	document.body.appendChild(this.sceneBox);
+
+	this.states = {};
 	
 	document.body.addEventListener('click', function(event){
 		var element = event.target;
@@ -35,7 +37,16 @@ function Siopa(startID){
 		}
 
 		if(element.tagName.toLowerCase() == 'entitymenuitem'){
-			var to = element.action.getAttribute('to');
+			var action = element.action;
+			var turnon = action.getAttribute('turnon');
+			if(turnon){
+				siopa.states[turnon] = true;
+			}
+			var turnoff = action.getAttribute('turnoff');
+			if(turnoff){
+				siopa.states[turnoff] = false;
+			}
+			var to = action.getAttribute('goto');
 			if(to){
 				siopa.activateScene(to);
 			}
@@ -53,6 +64,20 @@ function Siopa(startID){
 Siopa.prototype.activateScene = function(sceneID){
 	var scene = document.getElementById(sceneID);
 	this.sceneBox.innerHTML = scene.innerHTML;
+	
+	var requires = this.sceneBox.getElementsByTagName('require');
+	for(var i = 0; i < requires.length; i++){
+		var require = requires[0];
+		var on = require.getAttribute('on');
+		var off = require.getAttribute('off');
+		if(on &&!this.states[on]){
+			require.style.display = 'none';
+		}else if(off && this.states[off]){
+			require.style.display = 'none';
+		}else{
+			require.style.display = 'block';
+		}
+	}
 };
 Siopa.prototype.clearMenu = function(){
 	if(this.menu){

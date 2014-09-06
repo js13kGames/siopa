@@ -8,20 +8,36 @@
 			<p>You're standing in a room.</p>	
 			<p>You see
 				<entity>another room
-					<action to="secondRoom">Go into room</action>
+					<action goto="secondRoom">Go into room</action>
 					<action>Look into room</action>
 				</entity>
 			down the hall.</p>
+			<require on="redbutton" off="blackbutton">
+				<p>A red light is glowing.</p>
+			</require>
 		</scene>
 
 		<scene id="secondRoom">
-			<p>You're in another room.</p>
+			<p>You're in another room. There is a
+				<entity>red button
+					<action turnon="redbutton">Push the button</action>
+				</entity>
+			and a
+				<entity>black button
+					<action turnon="blackbutton">Push the button</action>
+				</entity>
+			here.</p>
+			<p>You can see the
+				<entity>first room
+					<action goto="firstRoom">Go</action>
+				</entity>
+			from here.</p>
 		</scene>
 
 		<script src="js/siopa-engine.js"></script>
 		<script>
 			function load(){
-				new Siopa('firstRoom');
+				siopa = new Siopa('firstRoom');
 			}
 
 			if(window.addEventListener){
