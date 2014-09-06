@@ -11,6 +11,10 @@ html,body{
 	width: 70%;
 }
 
+#eventBox{
+	font: 14pt arial;
+}
+
 scene{
 	display: none;
 }
@@ -21,4 +25,7 @@ action{
 }
 action:hover{
 	color: #44c;
+}
+actionText{
+	display: none;
 }
