@@ -65,7 +65,7 @@ function Siopa(startID){
 			}
 			var turnoff = action.getAttribute('turnoff');
 			if(turnoff){
-				var offs = turnoffs.split(' ');
+				var offs = turnoff.split(' ');
 				for(var i = 0; i < offs.length; i++){
 					siopa.states[offs[i]] = true;
 				}
