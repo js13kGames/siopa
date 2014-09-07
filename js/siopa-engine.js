@@ -76,9 +76,8 @@ function Siopa(startID){
 			if(turnoff){
 				var offs = turnoff.split(' ');
 				for(var i = 0; i < offs.length; i++){
-					siopa.states[offs[i]] = true;
+					siopa.states[offs[i]] = false;
 				}
-				siopa.states[turnoff] = false;
 			}
 			siopa.updateRequireBlocks();
 
