@@ -36,9 +36,7 @@ function Siopa(startID){
 			}
 			document.body.appendChild(menu);
 
-			var entityRect = element.getBoundingClientRect();
 			var menuRect = menu.getBoundingClientRect();
-
 			menu.style.left = event.clientX - .5*menuRect.width;
 			menu.style.top = event.clientY;
 
