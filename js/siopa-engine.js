@@ -8,6 +8,7 @@ function Siopa(startID){
 	document.body.appendChild(this.sceneBox);
 
 	this.states = {};
+	this.currentScene = null;
 	
 	document.body.addEventListener('click', function(event){
 		var element = event.target;
@@ -88,11 +89,14 @@ function Siopa(startID){
 
 	this.activateScene(startID);
 }
+
 Siopa.prototype.activateScene = function(sceneID){
 	var scene = document.getElementById(sceneID);
 	this.sceneBox.innerHTML = scene.innerHTML;
 	this.updateRequireBlocks();
+	this.currentScene = sceneID;
 };
+
 Siopa.prototype.updateRequireBlocks = function(){
 	var requires = this.sceneBox.getElementsByTagName('require');
 	for(var i = 0; i < requires.length; i++){
@@ -108,6 +112,7 @@ Siopa.prototype.updateRequireBlocks = function(){
 		}
 	}
 }
+
 Siopa.prototype.clearMenu = function(){
 	if(this.menu){
 		document.body.removeChild(this.menu);
