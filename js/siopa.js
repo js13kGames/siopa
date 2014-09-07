@@ -21,6 +21,13 @@ function beginAir(){
 
 function beginWater(){
 	siopa.activateScene('onDeck');
+	setTimeout(function(){
+		if(siopa.currentScene === 'onDeck' || siopa.currentScene === 'outHatch'){
+			siopa.activateScene('onDeckDeath');
+		}else{
+			siopa.activateScene('belowDeckDeath');
+		}
+	}, 1000 * 5 * 2);
 }
 
 if(window.addEventListener){
