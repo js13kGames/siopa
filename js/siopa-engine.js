@@ -103,6 +103,9 @@ Siopa.prototype.activateScene = function(sceneID){
 	this.sceneBox.innerHTML = scene.innerHTML;
 	this.updateRequireBlocks();
 	this.currentScene = sceneID;
+	if(this.menu){
+		document.body.removeChild(this.menu);
+	}
 };
 
 Siopa.prototype.updateRequireBlocks = function(){
