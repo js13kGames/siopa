@@ -1,0 +1,286 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/siopa-engine.css">
+	</head>
+	<body>
+
+<scene id="livingRoom">
+	<p>The lights flicker as you sit on a
+		<entity>plaid couch<!--
+			--><action off="pillow" turnon="pillow" show="pillow">Lift pillow</action><!--
+			--><action on="tornadoKnowledge" show="duckCouch">Duck behind couch</action><!--
+		--></entity>.
+	You look up and notice the
+		<entity>television
+			<action off="television" turnon="television tornadoKnowledge" show="television">Turn on</action>
+			<action on="television" turnoff="television" show="televisionOff">Turn off</action>
+		</entity>
+	directly across from you. The faded wallpaper behind it needs to be
+	replaced. Rising, you notice the
+		<entity>window
+			<action show="lookWindow">Look out window</action>
+			<action off="openWindow" turnon="openWindow" show="openWindow">Open window</action>
+			<action on="openWindow" off="noWindow" turnon="noWindow" show="closeWindow">Close window</action>
+		</entity>
+	to your right. The
+		<entity>front door
+			<action show="lookDoor">Look out door</action>
+			<action goto="porch" turnoff="inside" turnon="outside">Go out door</action>
+		</entity>
+	is beside the window and across from the door is the
+		<entity>stairwell
+			<action goto="landing">Climb up steps</action>
+		</entity>
+	and the coat closet.</p>
+
+	<actionText name="pillow">
+		You pick up the pillow. A feather pokes through the satin fabric and
+		jabs your arm, but you cling to it as you carry it around the house
+		with you.	
+	</actionText>
+
+	<actionText name="duckCouch">
+		You lift several cushions off the couch and surround your body with
+		them. In the soft comfort of your new fort, you place your hands on
+		your neck and tuck your forehead against your knees.
+	</actionText>
+
+	<actionText name="television">
+		You press a button on the side of the television. The screen
+		flickers to life. The local news broadcaster sits behind his desk. A
+		weather map swirls behind him. As you peer closer, you hear the man
+		say, "A tornado has just touched on the ground. Please take shelter
+		immediately if you are…." The list of nearby towns includes yours.
+	</actionText>
+
+	<actionText name="televisionOff">
+		<p>As you press the power switch, the reporter’s voice is cut off
+		mid-sentence. There is a loud pop and then a hum as the television
+		shuts down.</p>
+	</actionText>
+
+	<actionText name="lookWindow">
+		You look out the window. The sky is an eerie, blinding white-gray
+		beyond the storm shelter. The storm shelter looks like an ancient
+		anthill rising out of the carefully tailored lawn. Beyond the shelter,
+		a grove of trees is swaying wildly in the wind.
+	</actionText>
+
+	<actionText name="openWindow">
+		Undoing the latch, you ease the windowpane open. Humid air floods
+		inside and your neck grows sticky.
+	</actionText>
+
+	<actionText name="closeWindow">
+		Disliking the humid air, you attempt to close the window. The fierce
+		wind wrenches the pane from your hand and sends it flying against the
+		side of the house. The glass shatters, spraying shards across the
+		porch.
+	</actionText>
+
+	<actionText name="lookDoor">
+		Cracking open the door, you look outside. On the porch you notice the
+		rocking chair has tipped over.
+	</actionText>
+</scene>
+
+<scene id="porch">
+	<p>You step onto the porch. The
+		<entity>rocking chair
+			<action off="rockingChair" turnon="rockingChair" show="rockingChair">Pick up</action>
+		</entity>
+	rattles. Beyond the porch, you see the
+		<entity>storm shelter<!--
+			--><action show="lookShelter">Look inside</action><!--
+			--><action goto="stormShelter" turnoff="outside" turnon="shelter">Go inside</action><!--
+		--></entity><!--
+	-->. It is an ugly mound of concrete and metal silhouetted against a pretty
+	grove of trees.</p>
+
+	<p>Behind you, the
+		<entity>front door
+			<action goto="livingRoom" turnoff="outside" turnon="inside">Go inside</action>
+		</entity>
+	remains open.</p>
+
+	<actionText name="rockingChair">
+		You reach for the armrest of the rocking chair and set it upright
+		again. The wind forces it to scoot across the wooden floor. The rocking
+		chair knocks against the banister, grating on your nerves.
+	</actionText>
+
+	<actionText name="lookShelter">
+		The door creaks as you twist the metal handle. It has been a long time
+		since you oiled the hinges. You glance down the steps. Dank air hits
+		you as you peer down into the small, dark space.
+	</actionText>
+</scene>
+
+<scene id="stormShelter">
+	<p>You quickly run down the steps. A collection of water bottles are gathered
+	in one corner. They are covered in grime. You glance back up at the stairs
+	as a sliver of gray sky pokes around the seams. Sighing, you realize the
+		<entity>shelter door
+			<action show="closeShelterDoor">Close door</action>
+			<action goto="porch" turnoff="shelter" turnon="shelter">Exit shelter</action>
+		</entity>
+	did not quite shut behind you.</p>
+
+	<actionText name="closeShelterDoor">
+		<p>Hurrying back up the stairs, you grab the handle and attempt to
+		force the door shut. It resists you as powerful gusts beat against the
+		frame.</p>
+	</actionText>
+</scene>
+
+<scene id="landing">
+	<p>Arriving on the
+		<entity>landing<!--
+			--><action goto="livingRoom">Go downstairs</action><!--
+		--></entity><!--
+	-->, you are now on the second floor. There are two
+	rooms with open doors. One is the
+		<entity>bedroom
+			<action goto="bedroom">Enter bedroom</action>
+		</entity>
+	and the other is an
+		<entity goto="office">office<!--
+			--><action goto="office">Enter office</action><!--
+		--></entity><!--
+	-->.</p>
+</scene>
+
+<scene id="bedroom">
+	<p>You look around the bedroom. A poster of your favorite movie hangs on
+	the wall above your unmade
+		<entity>bed<!--
+			--><action off="makeBed" turnon="makeBed" show="makeBed">Make bed</action><!--
+			--><action show="aroundBed">Move around bed</action><!--
+		--></entity><!--
+	-->. One corner of the poster is curling. Part
+	of your navy and tan comforter curls on the floor at the foot of the bed.
+	The far wall has a
+		<entity>window
+			<action off="openBlinds" turnon="openBlinds" show="openBlinds">Open blinds</action>
+			<action on="openBlinds" turnon="tornadoKnowledge" show="lookWindow">Look out window</action>
+		</entity>
+	and the closet opens up beside it.</p>
+
+	<actionText name="makeBed">
+		Sighing, you stoop down and lift the comforter off the floor. Moving
+		gingerly around the bed, you attempt not to scuff your shins against
+		the footboard. You straighten the sheets, put the comforter back into
+		place, and fluff the pillows.
+	</actionText>
+
+	<actionText name="aroundBed">
+		You scoot around the foot of the bed, careful not to ram your shin into
+		the sharp corner of the bed frame. You have done that before and know
+		it leaves a terrible bruise.
+	</actionText>
+
+	<actionText name="openBlinds">
+		Catching the nearby pole, you twist the blinds open. You tug the string
+		to raise the blinds. Gray light floods the room.
+	</actionText>
+
+	<actionText name="lookWindow">
+		A strange shape moves beyond the grove of trees outside. It is
+		top-heavy and sounds like a train bowling over everything in its path.
+		Your heart begins to thunder in your chest. It is a tornado.
+	</actionText>
+</scene>
+
+<scene id="office">
+	<p>The
+		<entity>light switch
+			<action off="officeLight" turnon="officeLight" show="turnon">Turn on</action>
+			<action on="officeLight" turnoff="officeLight" show="turnoff">Turn off</action>
+		</entity>
+	is awkwardly placed behind the office door. Since you
+	can never see when you enter that room, you always are careful to keep the
+	entrance clear of clutter.</p>
+
+	<actionText name="turnon">
+		The electric bulb pops and light fills the room.
+	</actionText>
+	
+	<actionText name="turnoff">
+		You turn off the light and scoot carefully around the open door.
+	</actionText>
+
+	<require on="officeLight">
+		<p>You noticed your
+			<entity>desk
+				<action show="papers">Look at papers</action>
+				<action show="drawer">Open drawer</action>
+			</entity>
+		is still cluttered with papers. A burgundy
+			<entity>recliner
+				<action off="reclinerSit" turnon="reclinerSit" show="reclinerSit">Sit down</action>
+				<action on="reclinerSit" turnooff="reclinerSit" show="reclinerUp">Get up</action>
+			</entity>
+		sits in the far corner.</p>
+	</require>
+
+	<actionText name="papers">
+		Going over to the desk, you flip through several sheets of paper. One
+		contains your grocery shopping list. Another is your most recent
+		electricity bill. There is a collection of random doodles on the final
+		collection of pages.
+	</actionText>
+
+	<actionText name="drawer">
+		The desk drawer is filled with office supplies. Several pencils and
+		pens are in a white plastic container. The hole puncher and the stapler
+		are lined up beside them.
+	</actionText>
+
+	<actionText name="reclinerSit">
+		You sit down in the chair. It is a fluffy, well-loved seat. You trace
+		the subtle, velvety pattern woven into the fabric with your fingertip.	
+	</actionText>
+
+	<actionText name="reclinerUp">
+		You push the handle on the side down and the footrest folds back into
+		the recliner. Rising, you stretch until you hear a pop in your back. It
+		feels good.
+	</actionText>
+</scene>
+
+<scene id="insideDeath">
+	<p>Pressure builds inside the room. Frightened, you flee to the nearby
+	closet for extra protection and duck down on your knees. There is a
+	terrible wrenching sound as the winds tear at your home. Wood cracks and
+	splinters, flying through the air around you. One of the walls of the
+	closet collapses. You try to scoot away and use a jacket as a shield, but
+	plaster hits you on the head. As your eyes slowly close, you see the
+	tornado nearing your hiding place. Then, everything fades away.</p>
+</scene>
+
+<scene id="outsideDeath">
+	<p>The wind has grown terrible in the time you’ve spent outside. It is
+	difficult to move around. Looking up, you notice a funnel cloud spinning
+	quickly behind the tree grove. You turn to find protection, but the tornado
+	is moving too quickly. You stumble, loose your footing, and realize you are
+	no longer on the ground. Trying to breathe, you are flung through the air
+	in speeds you have never experienced before. The force hurts. Darkness
+	creeps across your vision as you are carried far away.</p>	
+</scene>
+
+<scene id="shelterDeath">
+	<p>Wind forces the shelter door open before you can yank it shut. Debris
+	flies through the air so you quickly retreat back against the metal wall.
+	There is an awful ripping sound all around you. As you look up at the
+	entrance, a tree strikes the storm shelter and causes the walls around the
+	door to buckle. The wind whips around the tree, shifting it. A branch
+	suddenly juts into the room as the tree is shifted by the tornado. The limb
+	strikes you in the stomach. You topple backwards and touch your stomach.
+	When you remove your hand it is covered in scarlet. Your surroundings begin
+	to fade away as your mind is numbed by pain.</p>
+</scene>
+		<script src="js/siopa-engine.js"></script>
+		<script src="js/siopa.js"></script>
+	</body>
+</html>
