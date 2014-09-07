@@ -58,10 +58,17 @@ function Siopa(startID){
 
 			var turnon = action.getAttribute('turnon');
 			if(turnon){
-				siopa.states[turnon] = true;
+				var ons = turnon.split(' ');
+				for(var i = 0; i < ons.length; i++){
+					siopa.states[ons[i]] = true;
+				}
 			}
 			var turnoff = action.getAttribute('turnoff');
 			if(turnoff){
+				var offs = turnoffs.split(' ');
+				for(var i = 0; i < offs.length; i++){
+					siopa.states[offs[i]] = true;
+				}
 				siopa.states[turnoff] = false;
 			}
 			siopa.updateRequireBlocks();
