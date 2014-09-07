@@ -47,6 +47,14 @@ function Siopa(startID){
 		if(element.tagName.toLowerCase() == 'entitymenuitem'){
 			var action = element.action;
 
+			var evalCode = action.getAttribute('eval');
+			if(evalCode){
+				var result = eval(evalCode);
+				if(result === false){
+					return;
+				}
+			}
+
 			var show = action.getAttribute('show');
 			var texts = siopa.sceneBox.getElementsByTagName('actionText');
 			for(var i = 0; i < texts.length; i++){
