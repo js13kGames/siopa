@@ -6,11 +6,12 @@
 	<body>
 
 <scene id="start">
-	<p>
-		<entity>Air
+		<p><entity>Air
 			<action eval="beginAir();">Begin</action>
-		</entity>
-	</p>
+		</entity></p>
+		<p><entity>Water
+			<action eval="beginWater();">Begin</action>
+		</entity></p>
 </scene>
 
 <scene id="livingRoom">
@@ -287,6 +288,221 @@
 	strikes you in the stomach. You topple backwards and touch your stomach.
 	When you remove your hand it is covered in scarlet. Your surroundings begin
 	to fade away as your mind is numbed by pain.</p>
+</scene>
+
+<scene id="onDeck">
+	<p>The storm arises suddenly as a wave crashes over the bow of the ship.
+	Salt water splashes off the railing and hits you as you stand near the
+		<entity>wheel<!--
+			--><action off="grabWheel" turnon="grabWheel" show="grabWheel">Grab wheel</action><!--
+			--><action on="grabWheel" show="changeCourse">Change course</action><!--
+		--></entity><!--
+	-->. Torrential rain pounds against the boat. A
+		<entity>control panel
+			<action turnon="lookControl" show="lookControl">Look at</action>
+			<action on="lookControl" show="pressButton">Press button</action>
+		</entity>
+	in front of the wheel beeps loudly. Directly across from you are the
+		<entity>stairwell
+			<action goto="belowDeck">Go below deck</action>
+		</entity>
+	and several
+		<entity>winches<!--
+			--><action on="wrapRope" turnon="pullRope" show="pullRope">Pull rope</action><!--
+			--><action on="pullRope" show="crankWinch">Crank winch</action><!--
+		--></entity><!--
+	-->.
+		<entity>Ropes
+			<action off="wrapRope" show="tugRope">Tug rope</action>
+			<action off="wrapRope" turnon="wrapRope" show="wrapRope">Wrap rope around winch</action>
+		</entity>
+	are carefully coiled beside the reels.</p>
+
+	<actionText name="grabWheel">
+		The boat pitches forward. You barely keep your footing on the slippery
+		deck as you grab the helm to keep from going overboard.
+	</actionText>
+
+	<actionText name="changeCourse">
+		Now in control of the helm, you spin the wheel rapidly. As you do, you
+		turn the boat into a wave and force her to climb over the crest.
+	</actionText>
+
+	<actionText name="lookControl">
+		Water droplets rush down the surface of the control panel. A blue
+			<entity>button
+				<action show="pressButton">Press button</action>
+			</entity>
+		is below the flashing screen.
+	</actionText>
+
+	<actionText name="pressButton">
+		You press the button on the front of the panel. The screen rolls
+		through several displays. One option allows you to see the depth of the
+		water below the boat. Another screen gives you your bearings so you can
+		navigate correctly.
+	</actionText>
+
+	<actionText name="pullRope">
+		Once the rope is securely wound around the reel, you tug the rope until
+		the tension is too great for it to be effective.
+	</actionText>
+
+	<actionText name="crankWinch">
+		You pull out the wrench and place it in the socket on top of the
+		wrench. With the added leverage, you are able to control the sail
+		traveling up and down the mast.
+	</actionText>
+
+	<actionText name="tugRope">
+		Impulsively, you grab a rapidly uncoiling rope. You feel it tug and
+		burn your hands as you try to keep the unfurled sail steady.
+	</actionText>
+
+	<actionText name="wrapRope">
+		Noticing how unruly the sails are, you wrap the rope around the reel.
+		You hope the boom won’t continue ricocheting back and forth over the
+		cabin.
+	</actionText>
+</scene>
+
+<scene id="belowDeck">
+	<p>You clutch the railing as you go down into the salon. On the port side
+	is the kitchen. A
+		<entity>bottle
+			<action off="bottleAway" turnon="bottleAway" show="bottleAway">Put away</action>
+			<action off="bottleAway" turnon="openBottle" show="openBottle">Open bottle</action>
+		</entity>
+	rolls around on the granite counter. On the other side of the salon a
+	vibrant yellow catches your eye. It is your
+		<entity>jacket<!--
+			--><action off="jacketOn" turnon="jacketOn" show="jacketOn">Put on</action><!--
+			--><action on="jacketOn" show="handPocket">Stick hand in pocket</action><!--
+		--></entity><!--
+	-->. The raincoat rests on the bench in front of the
+		<entity>captain’s table<!--
+			--><action off="openTable" turnon="openTable" show="openTable">Open top</action><!--
+			--><action on="openTable">Remove map</action><!--
+			--><action on="openTable">Remove compass</action><!--
+			--><action on="openTable" turnoff="openTable" show="closeTop">Close top</action><!--
+		--></entity><!--
+	-->. A
+		<entity>radio
+			<action off="radioOn" turnon="radioOn" show="radioOn">Turn on</action>
+			<action on="radioOn" turnoff="radioOn" show="radioOff">Turn off</action>
+		</entity>
+	hangs on the wall above the table. Water sloshes on the floor through the
+	front
+		<entity>hatch<!--
+			--><action off="closeHatch" turnon="closeHatch" show="closeHatch">Close hatch</action><!--
+			--><action off="closeHatch" goto="outHatch">Go through hatch</action><!--
+			--><action on="closeHatch" turnoff="closeHatch" show="openHatch">Open hatch</action><!--
+		--></entity><!--
+	-->.</p>
+
+	<require on="openTable">
+		<p>You brace yourself on the bench in front of the captain’s table and
+		open the lid. Inside is a
+			<entity>map<!--
+				--><action off="openMap" turnon="openMap" show="openMap">Open map</action><!--
+				--><action on="openMap" turnoff="openMap openTable" show="returnMap">Return map</action><!--
+			--></entity><!--
+		-->, a
+			<entity>compass<!--
+				--><action off="lookCompass" turnon="lookCompass" show="lookCompass">Look at</action><!--
+				--><action on="lookCompass" turnoff="lookCompass" show="returnCompass">Return compass</action><!--
+			--></entity><!--
+		-->, several receipts from on-shore stops, and the itinerary you made
+		for the trip.</p>
+	</require>
+
+	<actionText name="closeTop">
+		You close the lid.
+	</actionText>
+
+	<actionText name="bottleAway">
+		The bouncing bottle is making you a nervous wreck. You grab the bottle,
+		open a cabinet, and throw it inside. Satisfied that it is out of the
+		way now, you return your attention to more pressing matters.
+	</actionText>
+
+	<actionText name="openBottle">
+		Feeling sick, you glance down at the label. The plastic bottle contains
+		Dramamine. You quickly pull the lid off and swallow a pill before
+		popping the lid back into place.
+	</actionText>
+
+	<actionText name="jacketOn">
+		Even though you are fairly soaked, you put on your rain jacket. The old
+		zipper snags before closing. You secure the hood on top of your head.
+		The extra layer of warmth is comforting.
+	</actionText>
+
+	<actionText name="handPocket">
+		Absentmindedly sticking your hand in your pocket, you feel something.
+		You fish it out and find an empty gum wrapper.
+	</actionText>
+
+	<actionText name="openMap">
+		You pull the map booklet out of the table. Closing the lid, you set the
+		waterproof book on the bare table and riffle through the pages to try
+		and recall what the terrain you saw looked like before the storm hit.
+		You grit your teeth. Land should be nearby.
+	</actionText>
+
+	<actionText name="returnMap">
+		You toss the map back into the captain's table. A wave strikes the side
+		of the boat, forcing the lid closed. It knocks your knuckles as it
+		closes. You rub your brushed hand.
+	</actionText>
+
+	<actionText name="lookCompass">
+		You lift the compass out of the captain’s table and shift it from side
+		to side. You feel a pang of regret as you recall that you have never
+		learned how to use it properly.
+	</actionText>
+
+	<actionText name="returnCompass">
+		You place the compass back in the open compartment.
+	</actionText>
+
+	<actionText name="radioOn">
+		Turning on the VHF radio, you adjust the frequency. Every station pops
+		and crackles with static. Eventually, you find channel sixteen and try
+		speaking into the handheld microphone. Nothing happens.
+	</actionText>
+
+	<actionText name="radioOff">
+		Unable to contact land or aid and feeling certain that no voice will
+		sound on your wire, you turn off the handset.
+	</actionText>
+
+	<actionText name="closeHatch">
+		You leap back as cold water crashes through the opening. Reaching up,
+		you grab the gray plastic handle and pull it down. You slip the latches
+		into place.
+	</actionText>
+
+	<actionText name="openHatch">
+		You open the hatch again since the air below deck is stuffy. Water
+		rolls through the opening and pours onto your head. You shudder because
+		you are completely drenched.
+	</actionText>
+</scene>
+<scene id="outHatch">
+	<p>You grab a small stool and place it below the opening. Hoisting yourself
+	up, you appear above deck again. An icy wave slaps you across the cheek as
+	you cling to the textured flooring above deck.</p>
+
+	<p>You can climb back to the
+		<entity>cockpit<!--
+			--><action goto="onDeck">Go</action><!--
+		--></entity><!--
+	-->, or you can go back down the
+		<entity>hatch<!--
+			--><action goto="belowDeck">Go</action><!--
+		--></entity><!--
+	-->.</p>
 </scene>
 		<script src="js/siopa-engine.js"></script>
 		<script src="js/siopa.js"></script>

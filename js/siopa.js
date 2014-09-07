@@ -19,6 +19,10 @@ function beginAir(){
 	}, 1000 * 60 * 2);
 }
 
+function beginWater(){
+	siopa.activateScene('onDeck');
+}
+
 if(window.addEventListener){
 	window.addEventListener('load', load)
 }else if(window.attachEvent){
