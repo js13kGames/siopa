@@ -2,8 +2,11 @@
 
 var siopa;
 function load(){
-	siopa = new Siopa('livingRoom');
+	siopa = new Siopa('start');
+}
 
+function beginAir(){
+	siopa.activateScene('livingRoom');
 	siopa.states['inside'] = true;
 	setTimeout(function(){
 		if(siopa.states['inside']){
