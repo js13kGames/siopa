@@ -12,6 +12,9 @@
 		<p><entity>Water
 			<action eval="beginWater();">Begin</action>
 		</entity></p>
+		<p><entity>Fire
+			<action eval="beginFire();">Begin</action>
+		</entity></p>
 </scene>
 
 <scene id="livingRoom">
@@ -504,6 +507,7 @@
 		--></entity><!--
 	-->.</p>
 </scene>
+
 <scene id="onDeckDeath">
 	<p>You stare up at the sky as a wave surges in front of the bow. The sky
 	has never seemed farther away than it is now in the trough. Rain pounds
@@ -519,6 +523,7 @@
 	far away.  You reach for it as the air in your lungs burns and then
 	disappears.</p>
 </scene>
+
 <scene id="belowDeckDeath">
 	Pitched from side to side, you attempt to move through the cabin. A large
 	wave hits the starboard side. The boat rolls and you are knocked against
@@ -529,6 +534,271 @@
 	sticky oozes down over your ear. Water begins filling the cabin as the
 	walls begin to split. You fall through the floor and the sea repeatedly
 	beats you against the sharp rocks beneath what is left of the boat.
+</scene>
+
+<scene id="inTent">
+	<p>You awake in the morning, snug and content in your obsidian and emerald
+		<entity>sleeping bag<!--
+			--><action off="outBag" turnon="outBag" show="outBag">Get out</action><!--
+			--><action on="outBag" off="rollBag" turnon="rollBag" show="rollBag">Roll up</action><!--
+		--></entity><!--
+	-->. Staring up at the ceiling of your
+		<entity>tent<!--
+			--><action on="outBag" goto="outsideTent">Leave tent</action><!--
+		--></entity><!--
+	-->, you reflect on
+	how peaceful last night’s starry sky was before you put out the campfire.
+	Turning, you notice your
+		<entity>backpack<!--
+			--><action on="outBag" show="mainPocket">Open main pocket</action><!--
+			--><action on="outBag" off="retrieveClothes" turnon="retrieveClothes" show="retrieveClothes">Retrieve clothes</action><!--
+			--><action on="outBag" off="haveKeys" show="frontPocket">Open small front pocket</action><!--
+		--></entity><!--
+	-->. Beside that is your rifle&mdash;a safety precaution you have always
+	taken on your camping
+	trips.</p>
+
+	<actionText name="outBag">
+		You pull the side zipper of the sleeping bag and push the top flap
+		back. Stretching, you crawl out of your portable bed.
+	</actionText>
+
+	<actionText name="rollBag">
+		Kneeling down, you fold the sleeping bag. You crush the air out of the
+		bag as you roll it tightly together and slip the straps around it.
+	</actionText>
+
+	<actionText name="mainPocket">
+		You open the main pocket of your backpack and fish around the clothes
+		for a granola bar.
+	</actionText>
+
+	<actionText name="retrieveClothes">
+		You pull your dingy, gray sweatpants out of the backpack and put them
+		over your pajamas even though the morning seems a little warmer than it
+		should.
+	</actionText>
+
+	<actionText name="frontPocket">
+		There are your
+			<entity>keys<!--
+				--><action off="haveKeys" turnon="haveKeys" show="haveKeys">Take keys</action><!--
+			--></entity><!--
+		-->&mdash;just like always.
+	</actionText>
+
+	<actionText name="haveKeys">
+		You take your keys out of the front pocket of your backpack.
+	</actionText>
+</scene>
+
+<scene id="outsideTent">
+	<p>Unzipping the 
+		<entity>tent<!--
+			--><action off="takeApart" goto="inTent">Enter tent</action><!--
+			--><action off="takeApart" turnon="takeApart" show="takeApart">Take apart tent</action><!--
+		--></entity><!--
+		-->’s flap, you step outside and stretch. The tent is stationed underneath a
+		<entity>tree<!--
+			--><action show="lookTree">Look at</action><!--
+			--><action show="swing">Swing on limb</action><!--
+			--><action show="lookAbove">Look above</action><!--
+		--></entity><!--
+	-->. Across from you is the remains of last night’s
+		<entity>campfire<!--
+			--><action off="cleanFire" turnon="cleanFire" show="cleanFire">Clean campfire</action><!--
+			--><action off="cleanFire" on="placeSticks" turnon="lightFire" show="lightFire">Light fire</action><!--
+		--></entity>
+	and a pile of
+		<entity>sticks<!--
+			--><action turnon="gatherSticks" show="gatherSticks">Gather sticks</action><!--
+			--><action off="cleanFire" on="gatherSticks" turnon="placeSticks" show="placeSticks">Place in campfire</action><!--
+		--></entity><!--
+	-->. Beside that is your cooking
+		<entity>pot
+			<action on="lightFire" off="loadPot" show="cookBreakfast">Cook breakfast</action>
+			<action off="loadPot" on="unlocked" turnon="loadPot" show="loadPot">Load into jeep</action>
+		</entity>
+	and
+		<entity>cooler<!--
+			--><action off="loadCooler" turnon="emptyCooler" show="emptyCooler">Empty cooler</action><!--
+			--><action off="loadCooler" on="unlocked" turnon="loadCooler" show="loadCooler">Load into jeep</action><!--
+		--></entity><!--
+	-->. Parked beyond the campfire is your crimson
+		<entity>jeep<!--
+			--><action on="haveKeys" off="unlocked" turnon="unlocked" show="unlocked">Unlock</action><!--
+			--><action on="unlocked" off="started" turnon="started" show="started">Start</action><!--
+			--><action on="started" goto="driving">Drive away</action><!--
+		--></entity><!--
+	-->.</p>
+
+	<actionText name="takeApart">
+		You stoop down and begin pulling the tent stakes out of the ground.
+		After applying a little bit of force, you are able to remove them from
+		the tough soil.
+	</actionText>
+
+	<require on="takeApart">
+		<p>You leave your
+			<entity>rifle
+				<action off="loadRifle" show="shootGun">Shoot gun</action>
+				<action off="loadRifle" on="unlocked" turnon="loadRifle" show="loadRifle">Load into jeep</action>
+			</entity>
+			and
+			<entity>backpack
+				<action on="outBag" show="mainPocket">Open main pocket</action>
+				<action on="outBag" off="retrieveClothes" turnon="retrieveClothes" show="retrieveClothes">Retrieve clothes</action>
+				<action on="outBag" off="haveKeys" show="frontPocket">Open small front pocket</action>
+			</entity>
+		sitting by the jeep.</p>
+	</require>
+
+	<actionText name="mainPocket">
+		You open the main pocket of your backpack and fish around the clothes
+		for a granola bar.
+	</actionText>
+
+	<actionText name="retrieveClothes">
+		You pull your dingy, gray sweatpants out of the backpack and put them
+		over your pajamas even though the morning seems a little warmer than it
+		should.
+	</actionText>
+
+	<actionText name="frontPocket">
+		There are your
+			<entity>keys<!--
+				--><action off="haveKeys" turnon="haveKeys" show="haveKeys">Take keys</action><!--
+			--></entity><!--
+		-->&mdash;just like always.
+	</actionText>
+
+	<actionText name="haveKeys">
+		You take your keys out of the front pocket of your backpack.
+	</actionText>
+	
+	<actionText name="shootGun">
+		Taking aim, you fire the rifle at the tree near your tent. You used
+		that tree as target practice last night.
+	</actionText>
+
+	<actionText name="loadRifle">
+		You carefully place the rifle in the gun rack that hangs above the
+		driver’s seat.
+	</actionText>
+
+	<actionText name="lookTree">
+		When you look closely, you can see several bullet holes in the trunk.
+	</actionText>
+
+	<actionText name="swing">
+		A large limb extends over your tent. You jump up, catch it, and swing
+		back and forth, enjoying the thrill of the moment.
+	</actionText>
+
+	<actionText name="lookAbove">
+		Streams of black waver in the sky above the canopy. You realize the
+		hot, dry air has a smokey scent. The hairs on the back of your neck
+		rise as you realize a forest fire is rapidly spreading.
+	</actionText>
+
+	<actionText name="cleanFire">
+		Removing the stones you placed around the small pit you dug to contain
+		the campfire, you throw them into the woods. Then, you kick the ashes
+		to disperse the remains of the fire and prevent an unsupervised fire
+		from starting.
+	</actionText>
+
+	<actionText name="lightFire">
+		You pull the flint out of your backpack and strike it. Sparks land on
+		the dry sticks and eventually cause them to erupt into flames.
+	</actionText>
+
+	<actionText name="gatherSticks">
+		Deciding there are too few sticks to begin another fire, you step into
+		the nearby woods. You rub your neck as sweat builds. It truly is a
+		sweltering day. You easily find fallen twigs between the trees and
+		bring them back to the campsite.
+	</actionText>
+
+	<actionText name="placeSticks">
+		You place sticks in the small pit you have dug that serves to house the
+		campfire.
+	</actionText>
+
+	<actionText name="cookBreakfast">
+		The pot still has some leftover stew in it. You reheat it over the open
+		flames as your stomach grumbles.
+	</actionText>
+
+	<actionText name="loadPot">
+		Glancing at your watch, you notice the time and realize you need to be
+		going soon. You dump the remaining stew out of the pot and load it into
+		the trunk.
+	</actionText>
+
+	<actionText name="emptyCooler">
+		You glance inside the cooler. All of the ice has turned to water
+		overnight. Finding the plug at the bottom, you pop it open and release
+		the water. It drains onto the brittle soil.
+	</actionText>
+
+	<actionText name="loadCooler">
+		Hefting the blue cooler up, you slid it into your trunk.
+	</actionText>
+
+	<actionText name="unlocked">
+		You unlock the jeep’s trunk. That will make it easier for you to load
+		the jeep later.
+	</actionText>
+
+	<actionText name="started">
+		Sticking the key in the slot behind the wheel, you turn it. The
+		ignition revs loudly and then starts. You remember that you really need
+		to get the engine looked at when you get back home.
+	</actionText>
+</scene>
+
+<scene id="driving">
+	Pressing the gas pedal, the jeep lurches forward. You bounce with the
+	sudden motion and brace yourself against the wheel. You turn the wheel and
+	begin 
+		<entity>driving away
+			<action eval="explodeJeep();">Continue</action>
+		</entity>
+	from the campsite.
+</scene>
+
+<scene id="branchDeath">
+	<p>Flames leap and hiss between the trees. You look around as the forest
+	blazes in crimson, scarlet, goldenrod, and ochre hues. The air shimmers and
+	waves in the intense heat. Just as your mind comprehends your dire
+	situation, you hear a terrible pop and crack. Looking up, you have just
+	enough time to realize that a hefty limb is hurtling toward you. Unable to
+	react, you are trapped beneath the heavy branch as the fire starts to sear
+	your skin.</p>
+</scene>
+
+<scene id="smokeDeath">
+	<p>You begin to feel dizzy as you look around the campsite. The air buckles
+	and dances like a mirage. It feels like you are standing in a furnace.
+	Something black and gray drifts across your vision as you collapse to your
+	knees. Slowly, you realize it is ash flying through the smoke-filled air.
+	Your lungs start to constrict. Coughing, you beat the ground with your
+	curled fists. Looking up one last time, you see orange tongues lick the
+	forest around your campsite. Your vision becomes hazy. Then, your eyes
+	close.</p>
+</scene>
+
+<scene id="jeepDeath">
+	<p>A tree splits as you look up. The entire forest behind your tent is
+	engulfed in flames. Quickly, you hit the gas. The jeep leaps forward. You
+	are jostled about as you floor the pedal, knuckles ashen as you cling to
+	the steering wheel. Fire quickly jumps from tree to tree around your jeep.
+	A flame reaches forward and consumes the back of your vehicle. The sounds
+	of an awful explosion reach your mind as fire races down the inside of your
+	vehicle. A piece of sharp shrapnel slices the side of your neck just before
+	the heat forces its way out of your windshield. The entire jeep ruptures
+	into a fireball.</p>
 </scene>
 		<script src="js/siopa-engine.js"></script>
 		<script src="js/siopa.js"></script>

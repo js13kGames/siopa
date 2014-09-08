@@ -27,7 +27,27 @@ function beginWater(){
 		}else{
 			siopa.activateScene('belowDeckDeath');
 		}
-	}, 1000 * 5 * 2);
+	}, 1000 * 60 * 2);
+}
+
+var fireTimer;
+function beginFire(){
+	siopa.activateScene('inTent');
+	fireTimer = setTimeout(function(){
+		if(siopa.currentScene === 'driving'){
+			siopa.activateScene('jeepDeath');
+		}else{
+			if(Math.random() < .5){
+				siopa.activateScene('branchDeath');
+			}else{
+				siopa.activateScene('smokeDeath');
+			}
+		}
+	}, 1000 * 60 * 2);
+}
+function explodeJeep(){
+	clearTimeout(fireTimer);
+	siopa.activateScene('jeepDeath');
 }
 
 if(window.addEventListener){
