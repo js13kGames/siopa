@@ -61,6 +61,11 @@ function beginEarth(){
 	}, 1000 * 60 * 2);
 }
 
+function complete(element){
+	siopa.states[element + 'Complete'] = true;
+	siopa.activateScene('start');
+}
+
 if(window.addEventListener){
 	window.addEventListener('load', load)
 }else if(window.attachEvent){

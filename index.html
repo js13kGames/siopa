@@ -7,16 +7,16 @@
 
 <scene id="start">
 		<p><entity>Air
-			<action eval="beginAir();">Begin</action>
+			<action off="airComplete" eval="beginAir();">Begin</action>
 		</entity></p>
 		<p><entity>Water
-			<action eval="beginWater();">Begin</action>
+			<action off="waterComplete" eval="beginWater();">Begin</action>
 		</entity></p>
 		<p><entity>Fire
-			<action eval="beginFire();">Begin</action>
+			<action off="fireComplete" eval="beginFire();">Begin</action>
 		</entity></p>
 		<p><entity>Earth
-			<action eval="beginEarth();">Begin</action>
+			<action off="earthComplete" eval="beginEarth();">Begin</action>
 		</entity></p>
 </scene>
 
@@ -271,7 +271,11 @@
 	splinters, flying through the air around you. One of the walls of the
 	closet collapses. You try to scoot away and use a jacket as a shield, but
 	plaster hits you on the head. As your eyes slowly close, you see the
-	tornado nearing your hiding place. Then, everything fades away.</p>
+	tornado nearing your hiding place. Then, everything
+		<entity>fades away<!--
+			--><action eval="complete('air')">Continue</action><!--
+		--></entity><!--
+	-->.</p>
 </scene>
 
 <scene id="outsideDeath">
@@ -281,7 +285,11 @@
 	is moving too quickly. You stumble, loose your footing, and realize you are
 	no longer on the ground. Trying to breathe, you are flung through the air
 	in speeds you have never experienced before. The force hurts. Darkness
-	creeps across your vision as you are carried far away.</p>	
+	creeps across your vision as you are carried
+		<entity>far away<!--
+			--><action eval="complete('air')">Continue</action><!--
+		--></entity><!--
+	-->.</p>
 </scene>
 
 <scene id="shelterDeath">
@@ -293,7 +301,11 @@
 	suddenly juts into the room as the tree is shifted by the tornado. The limb
 	strikes you in the stomach. You topple backwards and touch your stomach.
 	When you remove your hand it is covered in scarlet. Your surroundings begin
-	to fade away as your mind is numbed by pain.</p>
+	to fade away as your mind is
+		<entity>number by pain<!--
+			--><action eval="complete('air')">Continue</action><!--
+		--></entity><!--
+	-->.</p>
 </scene>
 
 <scene id="onDeck">
@@ -524,7 +536,10 @@
 	to spit it out, but you know that will only hasten the inevitable. Your
 	limbs begin to feel cold as you are tossed below the water. The surface is
 	far away.  You reach for it as the air in your lungs burns and then
-	disappears.</p>
+		<entity>disappears<!--
+			--><action eval="complete('water')">Continue</action><!--
+		--></entity><!--
+	-->.</p>
 </scene>
 
 <scene id="belowDeckDeath">
@@ -536,7 +551,11 @@
 	you are flung against the rock. You hit your head and something warm and
 	sticky oozes down over your ear. Water begins filling the cabin as the
 	walls begin to split. You fall through the floor and the sea repeatedly
-	beats you against the sharp rocks beneath what is left of the boat.
+	beats you against the sharp rocks beneath
+		<entity>what is left of the boat.<!--
+			--><action eval="complete('water')">Continue</action><!--
+		--></entity><!--
+	-->.</p>
 </scene>
 
 <scene id="inTent">
@@ -777,8 +796,11 @@
 	waves in the intense heat. Just as your mind comprehends your dire
 	situation, you hear a terrible pop and crack. Looking up, you have just
 	enough time to realize that a hefty limb is hurtling toward you. Unable to
-	react, you are trapped beneath the heavy branch as the fire starts to sear
-	your skin.</p>
+	react, you are trapped beneath the heavy branch as the fire starts to
+		<entity>sear your skin<!--
+			--><action eval="complete('fire')">Continue</action><!--
+		--></entity><!--
+	-->.</p>
 </scene>
 
 <scene id="smokeDeath">
@@ -789,7 +811,10 @@
 	Your lungs start to constrict. Coughing, you beat the ground with your
 	curled fists. Looking up one last time, you see orange tongues lick the
 	forest around your campsite. Your vision becomes hazy. Then, your eyes
-	close.</p>
+		<entity>close<!--
+			--><action eval="complete('fire')">Continue</action><!--
+		--></entity><!--
+	-->.</p>
 </scene>
 
 <scene id="jeepDeath">
@@ -801,7 +826,10 @@
 	of an awful explosion reach your mind as fire races down the inside of your
 	vehicle. A piece of sharp shrapnel slices the side of your neck just before
 	the heat forces its way out of your windshield. The entire jeep ruptures
-	into a fireball.</p>
+		<entity>into a fireball<!--
+			--><action eval="complete('fire')">Continue</action><!--
+		--></entity><!--
+	-->.</p>
 </scene>
 
 <scene id="inCubical">
@@ -1019,7 +1047,11 @@
 	guard your head before the heavy metal case crashes against you. You are
 	pinned against the floor. One of your arms is broken. Pain grips your mind.
 	Looking around, you notice a jagged aperture travel up the wall and across
-	the ceiling. The roof begins to crumble.
+	the ceiling. The roof begins
+		<entity>to crumble<!--
+			--><action eval="complete('earth')">Continue</action><!--
+		--></entity><!--
+	-->.</p>
 </scene>
 
 <scene id="outsideOfficeDeath">
@@ -1033,7 +1065,11 @@
 	its path are demolished and carried with it. Turning, you start running as
 	quickly as you can, but the earth soon casts a shadow over your form. The
 	landslide rushes toward you. Sunlight disappears as black, brown, and gray
-	soil drops around you.
+	soil drops
+		<entity>around you<!--
+			--><action eval="complete('earth')">Continue</action><!--
+		--></entity><!--
+	-->.</p>
 </scene>
 		<script src="js/siopa-engine.js"></script>
 		<script src="js/siopa.js"></script>
