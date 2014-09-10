@@ -50,6 +50,12 @@ function explodeJeep(){
 	siopa.activateScene('jeepDeath');
 }
 
+function beginEarth(){
+	siopa.activateScene('inCubical');
+	setTimeout(function(){
+	}, 1000 * 60 * 2);
+}
+
 if(window.addEventListener){
 	window.addEventListener('load', load)
 }else if(window.attachEvent){

@@ -15,6 +15,9 @@
 		<p><entity>Fire
 			<action eval="beginFire();">Begin</action>
 		</entity></p>
+		<p><entity>Earth
+			<action eval="beginEarth();">Begin</action>
+		</entity></p>
 </scene>
 
 <scene id="livingRoom">
@@ -799,6 +802,209 @@
 	vehicle. A piece of sharp shrapnel slices the side of your neck just before
 	the heat forces its way out of your windshield. The entire jeep ruptures
 	into a fireball.</p>
+</scene>
+
+<scene id="inCubical">
+	<p>It has been a long morning in the office. After rubbing your eyes, you
+	lean back in your chair and stare at your
+		<entity>computer
+			<action off="screenLock" turnon="screenLock" show="screenLock">Lock screen</action>
+			<action on="screenLock" turnoff="screenLock" show="screenLockOff">Unlock screen</action>
+		</entity>
+	screen. There is a
+		<entity>desk drawer
+			<action show="openDrawer">Open drawer</action>
+		</entity>
+	underneath the keyboard. Sitting on top of one of the
+		<entity>filing cabinets
+			<action off="retrieveFile" turnon="retrieveFile" show="retrieveFile">Retrieve file</action>
+			<action off="reorderFiles" turnon="reorderFiles" show="reorderFiles">Reorder files</action>
+		</entity>
+	is your stained, purple
+		<entity>lunch bag<!--
+			--><action off="takeLunch" turnon="takeLunch" show="takeLunch">Take lunch bag</action><!--
+		--></entity><!--
+	-->. To your left is a
+		<entity>hallway<!--
+			--><action goto="hallway">Leave cubical</action><!--
+		--></entity><!--
+	-->.</p>
+
+	<require on="removeNotebook">
+		<p>Reaching into the drawer, your fingers curl around the spine of the
+			<entity>notebook<!--
+				--><action show="notebookFlip">Flip through notebook</action><!--
+				--><action off="notebookTear" turnon="notebookTear" show="notebookTear">Tear out page</action><!--
+			--></entity><!--
+		-->. You pull it out, push your keyboard back, and place the notebook
+		on your desk.</p>
+	</require>
+
+	<actionText name="screenLock">
+		Tired of staring at your office work, you decide to lock the computer
+		screen so no one can mess with your documents while you are away from
+		your desk.
+	</actionText>
+
+	<actionText name="screenLockOff">
+		Struck with new inspiration, you strike a few keys, unlock the computer
+		screen, and add a few notes to the end of a document. Your boss is
+		going to love these new suggestions.
+	</actionText>
+
+	<actionText name="openDrawer">
+		You open the drawer. Your black
+			<entity>notebook
+				<action off="removeNotebook" turnon="removeNotebook">Remove notebook</action>
+			</entity>
+		is tucked inside. A few pens and highlighters roll around beside it
+		even though you have not jarred them.
+	</actionText>
+
+	<actionText name="retrieveFile">
+		Glancing over the drawer labels, you open the third drawer and slide
+		the files forward. Finally, you find the one labeled "Construction
+		Projects" and pull it out. You toss it on your desk for later.
+	</actionText>
+
+	<actionText name="reorderFiles">
+		As you are looking through the drawer, you notice three of the files
+		are out of alphabetical order. You quickly reorganize them.
+	</actionText>
+
+	<actionText name="takeLunch">
+		You pull the purple bag off the top of the cabinet. You have had the
+		lunchbox since you were in middle school. It reminds you of when your
+		mother used to pack your lunches for school.
+	</actionText>
+
+	<actionText name="notebookFlip">
+		Flipping through the pages, you come to the latest series of notes.
+		They are minutes from your most recent office meeting about the newest
+		project your team has been asked to tackle.
+	</actionText>
+
+	<actionText name="notebookTear">
+		Across from the meeting notes is a shopping list. You tear it out of
+		the notebook and tuck it into your
+			<entity>briefcase<!--
+				--><action show="briefcase">Examine briefcase</action><!--
+			--></entity><!--
+		-->.
+	</actionText>
+
+	<actionText name="briefcase">
+		Unsnapping the front cover, you pull the zipper open. Inside the pocket
+		are a folder, your laptop case, and a cell phone.
+	</actionText>
+</scene>
+
+<scene id="hallway">
+	<p>You step into the hallway. A string of cubicles run along it. You are
+	fortunate enough to have one that faces the outer wall, which is completely
+	made of glass. The
+		<entity>window
+			<action show="lookWindow">Look out window</action>
+			<action show="touchWindow">Touch window</action>
+		</entity>
+	offers you a glimpse of the outside world during the day. At the end of the
+	hallway is a
+		<entity>vending machine
+			<action show="lookVending">Look at machine</action>
+			<action on="insertCoins" turnoff="insertCoins" show="getDrink">Get drink</action>
+		</entity>
+	and the
+		<entity>front door
+			<action goto="outside">Go through door</action>
+		</entity>
+	to the building.</p>
+
+	<actionText name="lookWindow">
+		Looking out the window, you gaze at the large hill. Your office
+		building is built at the base of the rise.
+	</actionText>
+
+	<actionText name="touchWindow">
+		Absentmindedly, you touch the glass wall. You start and pull back. The
+		window is definitely trembling. Pausing, you focus to find out if there
+		are any other tremors. You hope that if there are it will be a minor
+		earthquake.
+	</actionText>
+
+	<actionText name="lookVending">
+		The plastic casing looks like it is vibrating. You gaze past it and
+		look at the different sodas. You forgot to bring your water bottle to
+		work today so you need something to drink with your lunch. You hope you
+		have enough change in your
+			<entity>wallet<!--
+				--><action show="pullWallet">Pull out wallet</action><!--
+			--></entity><!--
+		-->.
+	</actionText>
+
+	<actionText name="getDrink">
+		You click D4. The metal coil rolls with a slow whizz and the drink
+		drops. You pull it out of the bottom slot.
+	</actionText>
+
+	<actionText name="pullWallet">
+		You pull your
+			<entity>wallet
+				<action turnon="insertCoins" show="insertCoins">Insert coins into machine</action>
+			</entity>
+		out. In the front is a family picture. You look at it and smile.
+	</actionText>
+
+	<actionText name="insertCoins">
+		Dumping several quarters into your hand, you insert them into the coin
+		slot on the vending machine. The machine clicks as it registers the
+		correct amount.
+	</actionText>
+</scene>
+
+<scene id="outside">
+	<p>Stepping outside, you blink back tears. It is a
+		<entity>very bright
+			<action off="veryBright" turnon="veryBright">Look around</action>
+		</entity>
+	afternoon.</p>
+
+	<require on="veryBright">
+		<p>You take in a deep breath. It is a lovely day. Near the office is
+			<entity>bench<!--
+				--><action off="sitBench" turnon="sitBench" show="sitBench">Sit on bench</action><!--
+				--><action on="quakeKnowledge" show="duckBench">Duck under bench</action><!--
+			--></entity><!--
+		-->. It is surrounded by trees and one of your favorite spots to eat
+		lunch.</p>
+	</require>
+
+	<require on="sitBench">
+		<p>Taking a seat on the
+			<entity>wooden bench<!--
+				--><action on="takeLunch" off="eatLunch" turnon="eatLunch" show="eatLunch">Eat lunch</action><!--
+			--></entity><!--
+		-->, you take time to
+			<entity>look around
+				<action on="sitBench" turnon="quakeKnowledge" show="lookBench">Look around</action>
+			</entity>
+		and enjoy the beautiful, hilly terrain surrounding the city.</p>
+	</require>
+
+	<actionText name="lookBench">
+		The hairs on your neck rise as a rumbling sound descends from the crest
+		of the nearby hill. A tremor passes under your feet and a fissure opens
+		in the ground a few yards away.
+	</actionText>
+
+	<actionText name="eatLunch">
+		Opening the bag, you pull out your club sandwich. A piece of lettuce
+		falls on your lap as you savor a big bite.
+	</actionText>
+
+	<actionText name="duckBench">
+		Frightened by the sudden change in the landscape around you, you duck behind the bench.
+	</actionText>
 </scene>
 		<script src="js/siopa-engine.js"></script>
 		<script src="js/siopa.js"></script>
