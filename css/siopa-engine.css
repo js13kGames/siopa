@@ -30,6 +30,10 @@ entity{
 entity:hover{
 	color: #44c;
 }
+entity.inactive{
+	color: #bbb;
+	cursor: default;
+}
 
 action{
 	display: none;

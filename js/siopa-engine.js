@@ -21,12 +21,7 @@ function Siopa(startID){
 			for(var i = 0; i < actions.length; i++){
 				var action = actions[i];
 
-				var on = action.getAttribute('on');
-				if(on && !siopa.states[on]){
-					continue;
-				}
-				var off = action.getAttribute('off');
-				if(off && siopa.states[off]){
+				if(!siopa.isActionActive(action)){
 					continue;
 				}
 
@@ -80,6 +75,7 @@ function Siopa(startID){
 				}
 			}
 			siopa.updateRequireBlocks();
+			siopa.updateActionColors();
 
 			var to = action.getAttribute('goto');
 			if(to){
@@ -101,6 +97,7 @@ Siopa.prototype.activateScene = function(sceneID){
 	var scene = document.getElementById(sceneID);
 	this.sceneBox.innerHTML = scene.innerHTML;
 	this.updateRequireBlocks();
+	this.updateActionColors();
 	this.currentScene = sceneID;
 	if(this.menu){
 		document.body.removeChild(this.menu);
@@ -119,6 +116,39 @@ Siopa.prototype.updateRequireBlocks = function(){
 			require.style.display = 'none';
 		}else{
 			require.style.display = 'block';
+		}
+	}
+}
+
+Siopa.prototype.isActionActive = function(action){
+	var on = action.getAttribute('on');
+	if(on && !this.states[on]){
+		return false;
+	}
+	var off = action.getAttribute('off');
+	if(off && this.states[off]){
+		return false;
+	}
+	return true;
+}
+
+Siopa.prototype.updateActionColors = function(){
+	var entities = this.sceneBox.getElementsByTagName('entity');
+	for(var i = 0; i < entities.length; i++){
+		var entity = entities[i];
+		var actions = entity.getElementsByTagName('action');
+		var active = false;
+		for(var j = 0; j < actions.length; j++){
+			var action = actions[j];
+			if(this.isActionActive(action)){
+				active = true;
+				break;
+			}
+		}
+		if(active){
+			entity.className = '';
+		}else{
+			entity.className = 'inactive';
 		}
 	}
 }
