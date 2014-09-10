@@ -53,6 +53,11 @@ function explodeJeep(){
 function beginEarth(){
 	siopa.activateScene('inCubical');
 	setTimeout(function(){
+		if(siopa.currentScene === 'inCubical' || siopa.currentScene === 'hallway'){
+			siopa.activateScene('inOfficeDeath');
+		}else{
+			siopa.activateScene('outsideOfficeDeath');
+		}
 	}, 1000 * 60 * 2);
 }
 
