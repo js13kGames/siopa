@@ -110,7 +110,7 @@ Siopa.prototype.activateScene = function(sceneID){
 Siopa.prototype.updateRequireBlocks = function(){
 	var requires = this.sceneBox.getElementsByTagName('require');
 	for(var i = 0; i < requires.length; i++){
-		var require = requires[0];
+		var require = requires[i];
 		var on = require.getAttribute('on');
 		var off = require.getAttribute('off');
 		if(on &&!this.states[on]){
