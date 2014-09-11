@@ -5,65 +5,112 @@ function load(){
 	siopa = new Siopa('start');
 }
 
-function beginAir(){
+function beginAir(save){
+	var time = 1000*60*1.5;
+	if(save){
+		time = 1000*45;
+	}
+	var suffix = 'Death';
+	if(save){
+		suffix = 'Life';
+	}
 	siopa.activateScene('livingRoom');
 	siopa.states['inside'] = true;
 	setTimeout(function(){
 		if(siopa.states['inside']){
-			siopa.activateScene('insideDeath');
+			siopa.activateScene('inside' + suffix);
 		}else if(siopa.states['outside']){
-			siopa.activateScene('outsideDeath');
+			siopa.activateScene('outside' + suffix);
 		}else if(siopa.states['shelter']){
-			siopa.activateScene('shelterDeath');
+			siopa.activateScene('shelter' + suffix);
 		}
-	}, 1000 * 60 * 2);
+	}, time);
 }
 
-function beginWater(){
+function beginWater(save){
+	var time = 1000*60*1.5;
+	if(save){
+		time = 1000*45;
+	}
+	var suffix = 'Death';
+	if(save){
+		suffix = 'Life';
+	}
 	siopa.activateScene('onDeck');
 	setTimeout(function(){
 		if(siopa.currentScene === 'onDeck' || siopa.currentScene === 'outHatch'){
-			siopa.activateScene('onDeckDeath');
+			siopa.activateScene('onDeck' + suffix);
 		}else{
-			siopa.activateScene('belowDeckDeath');
+			siopa.activateScene('belowDeck' + suffix);
 		}
-	}, 1000 * 60 * 2);
+	}, time);
 }
 
 var fireTimer;
-function beginFire(){
+var fireSave;
+function beginFire(save){
+	var time = 1000*60*1.5;
+	if(save){
+		time = 1000*45;
+	}
+	var suffix = 'Death';
+	if(save){
+		suffix = 'Life';
+	}
+	fireSave = save;
 	siopa.activateScene('inTent');
 	fireTimer = setTimeout(function(){
 		if(siopa.currentScene === 'driving'){
-			siopa.activateScene('jeepDeath');
+			siopa.activateScene('jeep' + suffix);
 		}else{
 			if(Math.random() < .5){
-				siopa.activateScene('branchDeath');
+				siopa.activateScene('branch' + suffix);
 			}else{
-				siopa.activateScene('smokeDeath');
+				siopa.activateScene('smoke' + suffix);
 			}
 		}
-	}, 1000 * 60 * 2);
+	}, time);
 }
 function explodeJeep(){
 	clearTimeout(fireTimer);
-	siopa.activateScene('jeepDeath');
+	if(!fireSave){
+		siopa.activateScene('jeepDeath');
+	}else{
+		siopa.activateScene('jeepLife');
+	}
 }
 
-function beginEarth(){
+function beginEarth(save){
+	var time = 1000*60*1.5;
+	if(save){
+		time = 1000*45;
+	}
+	var suffix = 'Death';
+	if(save){
+		suffix = 'Life';
+	}
 	siopa.activateScene('inCubical');
 	setTimeout(function(){
 		if(siopa.currentScene === 'inCubical' || siopa.currentScene === 'hallway'){
-			siopa.activateScene('inOfficeDeath');
+			siopa.activateScene('inOffice' + suffix);
 		}else{
-			siopa.activateScene('outsideOfficeDeath');
+			siopa.activateScene('outsideOffice' + suffix);
 		}
-	}, 1000 * 60 * 2);
+	}, time);
 }
 
 function complete(element){
 	siopa.states[element + 'Complete'] = true;
-	siopa.activateScene('start');
+	siopa.states['completedOne'] = true;
+	
+	if(siopa.states['airComplete']
+			&& siopa.states['waterComplete']
+			&& siopa.states['fireComplete']
+			&& siopa.states['earthComplete']){
+		siopa.activateScene('selectionFinal');
+	}else{
+		siopa.activateScene('selection');
+	}
 }
 
 if(window.addEventListener){

@@ -155,7 +155,10 @@ Siopa.prototype.updateActionColors = function(){
 
 Siopa.prototype.clearMenu = function(){
 	if(this.menu){
-		document.body.removeChild(this.menu);
+		// Band-aid. This seems to crash on scene end sometimes.
+		try{
+			document.body.removeChild(this.menu);
+		}catch(err){}
 		this.menu = null;
 	}
 };
