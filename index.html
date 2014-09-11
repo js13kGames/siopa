@@ -31,7 +31,7 @@
 		<p>But soon a fierce storm came up. High waves were breaking into the boat,
 		and it began to fill with water. Jesus was sleeping at the back of the
 		boat with his head on a cushion. The disciples woke him up, shouting,
-		"Teacher, don’t you care that<br>
+		"Teacher, don’t you care that
 			<entity>we're going to drown<!--
 				--><action goto="selection">Continue</action><!--
 			--></entity><!--
@@ -168,7 +168,7 @@
 		</entity>
 	is beside the window and across from the door is the
 		<entity>stairwell
-			<action goto="landing">Climb up steps</action>
+			<action goto="bedroom">Climb up steps</action>
 		</entity>
 	and the coat closet.</p>
 
@@ -272,32 +272,15 @@
 	</actionText>
 </scene>
 
-<scene id="landing">
-	<p>Arriving on the
-		<entity>landing<!--
-			--><action goto="livingRoom">Go downstairs</action><!--
-		--></entity><!--
-	-->, you are now on the second floor. There are two
-	rooms with open doors. One is the
-		<entity>bedroom
-			<action goto="bedroom">Enter bedroom</action>
-		</entity>
-	and the other is an
-		<entity goto="office">office<!--
-			--><action goto="office">Enter office</action><!--
-		--></entity><!--
-	-->.</p>
-</scene>
-
 <scene id="bedroom">
-	<p>You look around the bedroom. A poster of your favorite movie hangs on
-	the wall above your unmade
+	<p>You climb up the steps and enter the bedroom. A poster of your favorite
+	movie hangs on the wall above your unmade
 		<entity>bed<!--
 			--><action off="makeBed" turnon="makeBed" show="makeBed">Make bed</action><!--
 			--><action show="aroundBed">Move around bed</action><!--
 		--></entity><!--
 	-->. One corner of the poster is curling. Part
-	of your navy and tan comforter curls on the floor at the foot of the bed.
+	of your navy and tan comforter rests on the floor at the foot of the bed.
 	The far wall has a
 		<entity>window
 			<action off="openBlinds" turnon="openBlinds" show="openBlinds">Open blinds</action>
@@ -305,11 +288,11 @@
 		</entity>
 	and the closet opens up beside it.</p>
 
-	<p>A door leads to the
-		<entity>landing<!--
-			--><action goto="landing">Go</action><!--
-		--></entity><!--
-	-->.</p>
+	<p>Use the
+		<entity>stairwell
+			<action goto="livingRoom">Climb down steps</action>
+		</entity>
+	to return to the first floor.</p>
 
 	<actionText name="makeBed">
 		Sighing, you stoop down and lift the comforter off the floor. Moving
@@ -333,67 +316,6 @@
 		A strange shape moves beyond the grove of trees outside. It is
 		top-heavy and sounds like a train bowling over everything in its path.
 		Your heart begins to thunder in your chest. It is a tornado.
-	</actionText>
-</scene>
-
-<scene id="office">
-	<p>The
-		<entity>light switch
-			<action off="officeLight" turnon="officeLight" show="turnon">Turn on</action>
-			<action on="officeLight" turnoff="officeLight" show="turnoff">Turn off</action>
-		</entity>
-	is awkwardly placed behind the
-		<entity>office door<!--
-			--><action goto="landing">Leave office</action><!--
-		--></entity><!--
-	-->. Since you
-	can never see when you enter that room, you always are careful to keep the
-	entrance clear of clutter.</p>
-
-	<actionText name="turnon">
-		The electric bulb pops and light fills the room.
-	</actionText>
-	
-	<actionText name="turnoff">
-		You turn off the light and scoot carefully around the open door.
-	</actionText>
-
-	<require on="officeLight">
-		<p>You noticed your
-			<entity>desk
-				<action show="papers">Look at papers</action>
-				<action show="drawer">Open drawer</action>
-			</entity>
-		is still cluttered with papers. A burgundy
-			<entity>recliner
-				<action off="reclinerSit" turnon="reclinerSit" show="reclinerSit">Sit down</action>
-				<action on="reclinerSit" turnoff="reclinerSit" show="reclinerUp">Get up</action>
-			</entity>
-		sits in the far corner.</p>
-	</require>
-
-	<actionText name="papers">
-		Going over to the desk, you flip through several sheets of paper. One
-		contains your grocery shopping list. Another is your most recent
-		electricity bill. There is a collection of random doodles on the final
-		collection of pages.
-	</actionText>
-
-	<actionText name="drawer">
-		The desk drawer is filled with office supplies. Several pencils and
-		pens are in a white plastic container. The hole puncher and the stapler
-		are lined up beside them.
-	</actionText>
-
-	<actionText name="reclinerSit">
-		You sit down in the chair. It is a fluffy, well-loved seat. You trace
-		the subtle, velvety pattern woven into the fabric with your fingertip.	
-	</actionText>
-
-	<actionText name="reclinerUp">
-		You push the handle on the side down and the footrest folds back into
-		the recliner. Rising, you stretch until you hear a pop in your back. It
-		feels good.
 	</actionText>
 </scene>
 
