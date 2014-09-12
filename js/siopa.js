@@ -63,11 +63,7 @@ function beginFire(save){
 		if(siopa.currentScene === 'driving'){
 			siopa.activateScene('jeep' + suffix);
 		}else{
-			if(Math.random() < .5){
-				siopa.activateScene('branch' + suffix);
-			}else{
-				siopa.activateScene('smoke' + suffix);
-			}
+			siopa.activateScene('smoke' + suffix);
 		}
 	}, time);
 }
