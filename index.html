@@ -650,8 +650,7 @@
 		<entity>sweatpants<!--
 			--><action on="outBag" off="sweatPants" turnon="sweatPants" show="sweatPants">Put on</action><!--		
 		--></entity><!--
-	-->. Beside that is your rifle&mdash;a safety precaution you have always
-	taken on your camping trips.</p>
+	-->.</p>
 
 	<actionText name="outBag">
 		You pull the side zipper of the sleeping bag and push the top flap
@@ -677,11 +676,9 @@
 	<p>Unzipping the 
 		<entity>tent<!--
 			--><action off="takeApart" goto="inTent">Enter tent</action><!--
-			--><action off="takeApart" turnon="takeApart" show="takeApart">Take apart tent</action><!--
 		--></entity><!--
 		-->’s flap, you step outside and stretch. The tent is stationed underneath a
 		<entity>tree<!--
-			--><action show="lookTree">Look at</action><!--
 			--><action show="swing">Swing on limb</action><!--
 			--><action show="lookAbove">Look above</action><!--
 		--></entity><!--
@@ -707,43 +704,6 @@
 			--><action on="started" goto="driving">Drive away</action><!--
 		--></entity><!--
 	-->.</p>
-
-	<actionText name="takeApart">
-		You stoop down and begin pulling the tent stakes out of the ground.
-		After applying a little bit of force, you are able to remove them from
-		the tough soil.
-	</actionText>
-
-	<require on="takeApart">
-		<p>You leave your
-			<entity>rifle
-				<action off="loadRifle" show="shootGun">Shoot gun</action>
-				<action off="loadRifle" on="unlocked" turnon="loadRifle" show="loadRifle">Load into jeep</action>
-			</entity>
-			and
-			<entity>keys
-				<action on="outBag" off="haveKeys" turnon="haveKeys" show="haveKeys">Take</action>
-			</entity>
-		sitting by the jeep.</p>
-	</require>
-
-	<actionText name="haveKeys">
-		You pick up your keys and stuff them in your pocket.
-	</actionText>
-
-	<actionText name="shootGun">
-		Taking aim, you fire the rifle at the tree near your tent. You used
-		that tree as target practice last night.
-	</actionText>
-
-	<actionText name="loadRifle">
-		You carefully place the rifle in the gun rack that hangs above the
-		driver’s seat.
-	</actionText>
-
-	<actionText name="lookTree">
-		When you look closely, you can see several bullet holes in the trunk.
-	</actionText>
 
 	<actionText name="swing">
 		A large limb extends over your tent. You jump up, catch it, and swing
@@ -920,10 +880,11 @@
 			<action on="screenLock" turnoff="screenLock" show="screenLockOff">Unlock screen</action>
 		</entity>
 	screen. There is a
-		<entity>desk drawer
-			<action show="openDrawer">Open drawer</action>
+		<entity>notebook
+			<action show="notebookFlip">Flip through notebook</action>
+			<action off="notebookTear" turnon="notebookTear" show="notebookTear">Tear out page</action>
 		</entity>
-	underneath the keyboard. Sitting on top of one of the
+	next to the keyboard. Sitting on top of one of the
 		<entity>filing cabinets
 			<action off="retrieveFile" turnon="retrieveFile" show="retrieveFile">Retrieve file</action>
 			<action off="reorderFiles" turnon="reorderFiles" show="reorderFiles">Reorder files</action>
@@ -938,16 +899,6 @@
 		--></entity><!--
 	-->.</p>
 
-	<require on="removeNotebook">
-		<p>Reaching into the drawer, your fingers curl around the spine of the
-			<entity>notebook<!--
-				--><action show="notebookFlip">Flip through notebook</action><!--
-				--><action off="notebookTear" turnon="notebookTear" show="notebookTear">Tear out page</action><!--
-			--></entity><!--
-		-->. You pull it out, push your keyboard back, and place the notebook
-		on your desk.</p>
-	</require>
-
 	<actionText name="screenLock">
 		Tired of staring at your office work, you decide to lock the computer
 		screen so no one can mess with your documents while you are away from
@@ -958,15 +909,6 @@
 		Struck with new inspiration, you strike a few keys, unlock the computer
 		screen, and add a few notes to the end of a document. Your boss is
 		going to love these new suggestions.
-	</actionText>
-
-	<actionText name="openDrawer">
-		You open the drawer. Your black
-			<entity>notebook
-				<action off="removeNotebook" turnon="removeNotebook">Remove notebook</action>
-			</entity>
-		is tucked inside. A few pens and highlighters roll around beside it
-		even though you have not jarred them.
 	</actionText>
 
 	<actionText name="retrieveFile">

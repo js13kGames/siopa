@@ -116,5 +116,5 @@ function complete(element){
 if(window.addEventListener){
 	window.addEventListener('load', load)
 }else if(window.attachEvent){
-	window.attachEvent('onload',c);
+	window.attachEvent('onload', load);
 }
