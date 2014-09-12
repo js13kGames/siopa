@@ -166,11 +166,7 @@
 			<action show="lookDoor">Look out door</action>
 			<action goto="porch" turnoff="inside" turnon="outside">Go out door</action>
 		</entity>
-	is beside the window and across from the door is the
-		<entity>stairwell
-			<action goto="bedroom">Climb up steps</action>
-		</entity>
-	and the coat closet.</p>
+	is beside the window and across from the door the coat closet.</p>
 
 	<actionText name="pillow">
 		You pick up the pillow. A feather pokes through the satin fabric and
@@ -269,53 +265,6 @@
 		<p>Hurrying back up the stairs, you grab the handle and attempt to
 		force the door shut. It resists you as powerful gusts beat against the
 		frame.</p>
-	</actionText>
-</scene>
-
-<scene id="bedroom">
-	<p>You climb up the steps and enter the bedroom. A poster of your favorite
-	movie hangs on the wall above your unmade
-		<entity>bed<!--
-			--><action off="makeBed" turnon="makeBed" show="makeBed">Make bed</action><!--
-			--><action show="aroundBed">Move around bed</action><!--
-		--></entity><!--
-	-->. One corner of the poster is curling. Part
-	of your navy and tan comforter rests on the floor at the foot of the bed.
-	The far wall has a
-		<entity>window
-			<action off="openBlinds" turnon="openBlinds" show="openBlinds">Open blinds</action>
-			<action on="openBlinds" turnon="tornadoKnowledge" show="lookWindow">Look out window</action>
-		</entity>
-	and the closet opens up beside it.</p>
-
-	<p>Use the
-		<entity>stairwell
-			<action goto="livingRoom">Climb down steps</action>
-		</entity>
-	to return to the first floor.</p>
-
-	<actionText name="makeBed">
-		Sighing, you stoop down and lift the comforter off the floor. Moving
-		gingerly around the bed, you attempt not to scuff your shins against
-		the footboard. You straighten the sheets, put the comforter back into
-		place, and fluff the pillows.
-	</actionText>
-
-	<actionText name="aroundBed">
-		You scoot around the foot of the bed, careful not to ram your shin into
-		the sharp corner of the bed frame. You have done that before and know
-		it leaves a terrible bruise.
-	</actionText>
-
-	<actionText name="openBlinds">
-		Catching the nearby pole, you twist the blinds open. You tug the string
-		to raise the blinds. Gray light floods the room.
-	</actionText>
-
-	<actionText name="lookWindow">
-		A strange shape moves beyond the grove of trees outside. It is
-		top-heavy and sounds like a train bowling over everything in its path.
-		Your heart begins to thunder in your chest. It is a tornado.
 	</actionText>
 </scene>
 
@@ -508,12 +457,16 @@
 			--><action off="jacketOn" turnon="jacketOn" show="jacketOn">Put on</action><!--
 			--><action on="jacketOn" show="handPocket">Stick hand in pocket</action><!--
 		--></entity><!--
-	-->. The raincoat rests on the bench in front of the
-		<entity>captain’s table<!--
-			--><action off="openTable" turnon="openTable" show="openTable">Open top</action><!--
-			--><action on="openTable">Remove map</action><!--
-			--><action on="openTable">Remove compass</action><!--
-			--><action on="openTable" turnoff="openTable" show="closeTop">Close top</action><!--
+	-->. The raincoat rests on the bench in front of the navigation table, which contains
+	a
+		<entity>map
+			<action off="openMap" turnon="openMap" show="openMap">Open map</action>
+			<action on="openMap" turnoff="openMap" show="returnMap">Return map</action>
+		</entity>
+	and a
+		<entity>compass<!--
+			--><action off="lookCompass" turnon="lookCompass" show="lookCompass">Look at</action><!--
+			--><action on="lookCompass" turnoff="lookCompass" show="returnCompass">Return compass</action><!--
 		--></entity><!--
 	-->. A
 		<entity>radio
@@ -524,7 +477,6 @@
 	front
 		<entity>hatch<!--
 			--><action off="closeHatch" turnon="closeHatch" show="closeHatch">Close hatch</action><!--
-			--><action off="closeHatch" goto="outHatch">Go through hatch</action><!--
 			--><action on="closeHatch" turnoff="closeHatch" show="openHatch">Open hatch</action><!--
 		--></entity><!--
 	-->.</p>
@@ -534,26 +486,6 @@
 			<action goto="onDeck">Go on deck</action>
 		</entity>
 	leads up.</p>
-
-	<require on="openTable">
-		<p>You brace yourself on the bench in front of the captain’s table and
-		open the lid. Inside is a
-			<entity>map<!--
-				--><action off="openMap" turnon="openMap" show="openMap">Open map</action><!--
-				--><action on="openMap" turnoff="openMap openTable" show="returnMap">Return map</action><!--
-			--></entity><!--
-		-->, a
-			<entity>compass<!--
-				--><action off="lookCompass" turnon="lookCompass" show="lookCompass">Look at</action><!--
-				--><action on="lookCompass" turnoff="lookCompass" show="returnCompass">Return compass</action><!--
-			--></entity><!--
-		-->, several receipts from on-shore stops, and the itinerary you made
-		for the trip.</p>
-	</require>
-
-	<actionText name="closeTop">
-		You close the lid.
-	</actionText>
 
 	<actionText name="bottleAway">
 		The bouncing bottle is making you a nervous wreck. You grab the bottle,
@@ -586,19 +518,19 @@
 	</actionText>
 
 	<actionText name="returnMap">
-		You toss the map back into the captain's table. A wave strikes the side
-		of the boat, forcing the lid closed. It knocks your knuckles as it
-		closes. You rub your brushed hand.
+		You toss the map back into the table. A wave strikes the side of the
+		boat, forcing the lid closed. It knocks your knuckles as it closes. You
+		rub your brushed hand.
 	</actionText>
 
 	<actionText name="lookCompass">
-		You lift the compass out of the captain’s table and shift it from side
-		to side. You feel a pang of regret as you recall that you have never
-		learned how to use it properly.
+		You lift the compass out of the table and shift it from side to side.
+		You feel a pang of regret as you recall that you have never learned how
+		to use it properly.
 	</actionText>
 
 	<actionText name="returnCompass">
-		You place the compass back in the open compartment.
+		You place the compass back in the table.
 	</actionText>
 
 	<actionText name="radioOn">
@@ -623,21 +555,6 @@
 		rolls through the opening and pours onto your head. You shudder because
 		you are completely drenched.
 	</actionText>
-</scene>
-<scene id="outHatch">
-	<p>You grab a small stool and place it below the opening. Hoisting yourself
-	up, you appear above deck again. An icy wave slaps you across the cheek as
-	you cling to the textured flooring above deck.</p>
-
-	<p>You can climb back to the
-		<entity>cockpit<!--
-			--><action goto="onDeck">Go</action><!--
-		--></entity><!--
-	-->, or you can go back down the
-		<entity>hatch<!--
-			--><action goto="belowDeck">Go</action><!--
-		--></entity><!--
-	-->.</p>
 </scene>
 
 <scene id="onDeckDeath">
@@ -726,14 +643,15 @@
 	-->, you reflect on
 	how peaceful last night’s starry sky was before you put out the campfire.
 	Turning, you notice your
-		<entity>backpack<!--
-			--><action on="outBag" show="mainPocket">Open main pocket</action><!--
-			--><action on="outBag" off="retrieveClothes" turnon="retrieveClothes" show="retrieveClothes">Retrieve clothes</action><!--
-			--><action on="outBag" off="haveKeys" show="frontPocket">Open small front pocket</action><!--
+		<entity>keys
+			<action on="outBag" off="haveKeys" turnon="haveKeys" show="haveKeys">Take</action>
+		</entity>
+	and your
+		<entity>sweatpants<!--
+			--><action on="outBag" off="sweatPants" turnon="sweatPants" show="sweatPants">Put on</action><!--		
 		--></entity><!--
 	-->. Beside that is your rifle&mdash;a safety precaution you have always
-	taken on your camping
-	trips.</p>
+	taken on your camping trips.</p>
 
 	<actionText name="outBag">
 		You pull the side zipper of the sleeping bag and push the top flap
@@ -745,27 +663,13 @@
 		bag as you roll it tightly together and slip the straps around it.
 	</actionText>
 
-	<actionText name="mainPocket">
-		You open the main pocket of your backpack and fish around the clothes
-		for a granola bar.
-	</actionText>
-
-	<actionText name="retrieveClothes">
-		You pull your dingy, gray sweatpants out of the backpack and put them
-		over your pajamas even though the morning seems a little warmer than it
-		should.
-	</actionText>
-
-	<actionText name="frontPocket">
-		There are your
-			<entity>keys<!--
-				--><action off="haveKeys" turnon="haveKeys" show="haveKeys">Take keys</action><!--
-			--></entity><!--
-		-->&mdash;just like always.
+	<actionText name="sweatPants">
+		You your dingy, gray sweatpants over your pajamas even though the
+		morning seems a little warmer than it should.
 	</actionText>
 
 	<actionText name="haveKeys">
-		You take your keys out of the front pocket of your backpack.
+		You pick up your keys and stuff them in your pocket.
 	</actionText>
 </scene>
 
@@ -784,12 +688,7 @@
 	-->. Across from you is the remains of last night’s
 		<entity>campfire<!--
 			--><action off="cleanFire" turnon="cleanFire" show="cleanFire">Clean campfire</action><!--
-			--><action off="cleanFire" on="placeSticks" turnon="lightFire" show="lightFire">Light fire</action><!--
-		--></entity>
-	and a pile of
-		<entity>sticks<!--
-			--><action turnon="gatherSticks" show="gatherSticks">Gather sticks</action><!--
-			--><action off="cleanFire" on="gatherSticks" turnon="placeSticks" show="placeSticks">Place in campfire</action><!--
+			--><action off="cleanFire" turnon="lightFire" show="lightFire">Light fire</action><!--
 		--></entity><!--
 	-->. Beside that is your cooking
 		<entity>pot
@@ -822,37 +721,16 @@
 				<action off="loadRifle" on="unlocked" turnon="loadRifle" show="loadRifle">Load into jeep</action>
 			</entity>
 			and
-			<entity>backpack
-				<action on="outBag" show="mainPocket">Open main pocket</action>
-				<action on="outBag" off="retrieveClothes" turnon="retrieveClothes" show="retrieveClothes">Retrieve clothes</action>
-				<action on="outBag" off="haveKeys" show="frontPocket">Open small front pocket</action>
+			<entity>keys
+				<action on="outBag" off="haveKeys" turnon="haveKeys" show="haveKeys">Take</action>
 			</entity>
 		sitting by the jeep.</p>
 	</require>
 
-	<actionText name="mainPocket">
-		You open the main pocket of your backpack and fish around the clothes
-		for a granola bar.
-	</actionText>
-
-	<actionText name="retrieveClothes">
-		You pull your dingy, gray sweatpants out of the backpack and put them
-		over your pajamas even though the morning seems a little warmer than it
-		should.
-	</actionText>
-
-	<actionText name="frontPocket">
-		There are your
-			<entity>keys<!--
-				--><action off="haveKeys" turnon="haveKeys" show="haveKeys">Take keys</action><!--
-			--></entity><!--
-		-->&mdash;just like always.
-	</actionText>
-
 	<actionText name="haveKeys">
-		You take your keys out of the front pocket of your backpack.
+		You pick up your keys and stuff them in your pocket.
 	</actionText>
-	
+
 	<actionText name="shootGun">
 		Taking aim, you fire the rifle at the tree near your tent. You used
 		that tree as target practice last night.
@@ -888,18 +766,6 @@
 	<actionText name="lightFire">
 		You pull the flint out of your backpack and strike it. Sparks land on
 		the dry sticks and eventually cause them to erupt into flames.
-	</actionText>
-
-	<actionText name="gatherSticks">
-		Deciding there are too few sticks to begin another fire, you step into
-		the nearby woods. You rub your neck as sweat builds. It truly is a
-		sweltering day. You easily find fallen twigs between the trees and
-		bring them back to the campsite.
-	</actionText>
-
-	<actionText name="placeSticks">
-		You place sticks in the small pit you have dug that serves to house the
-		campfire.
 	</actionText>
 
 	<actionText name="cookBreakfast">
@@ -1128,16 +994,7 @@
 
 	<actionText name="notebookTear">
 		Across from the meeting notes is a shopping list. You tear it out of
-		the notebook and tuck it into your
-			<entity>briefcase<!--
-				--><action show="briefcase">Examine briefcase</action><!--
-			--></entity><!--
-		-->.
-	</actionText>
-
-	<actionText name="briefcase">
-		Unsnapping the front cover, you pull the zipper open. Inside the pocket
-		are a folder, your laptop case, and a cell phone.
+		the notebook and tuck it into your briefcase.
 	</actionText>
 </scene>
 
@@ -1152,8 +1009,7 @@
 	offers you a glimpse of the outside world during the day. At the end of the
 	hallway is a
 		<entity>vending machine
-			<action show="lookVending">Look at machine</action>
-			<action on="insertCoins" turnoff="insertCoins" show="getDrink">Get drink</action>
+			<action show="getDrink">Get drink</action>
 		</entity>
 	and the
 		<entity>front door
@@ -1173,34 +1029,10 @@
 		earthquake.
 	</actionText>
 
-	<actionText name="lookVending">
-		The plastic casing looks like it is vibrating. You gaze past it and
-		look at the different sodas. You forgot to bring your water bottle to
-		work today so you need something to drink with your lunch. You hope you
-		have enough change in your
-			<entity>wallet<!--
-				--><action show="pullWallet">Pull out wallet</action><!--
-			--></entity><!--
-		-->.
-	</actionText>
-
 	<actionText name="getDrink">
 		You click D4. The metal coil rolls with a slow whizz and the drink
-		drops. You pull it out of the bottom slot.
-	</actionText>
-
-	<actionText name="pullWallet">
-		You pull your
-			<entity>wallet
-				<action turnon="insertCoins" show="insertCoins">Insert coins into machine</action>
-			</entity>
-		out. In the front is a family picture. You look at it and smile.
-	</actionText>
-
-	<actionText name="insertCoins">
-		Dumping several quarters into your hand, you insert them into the coin
-		slot on the vending machine. The machine clicks as it registers the
-		correct amount.
+		drops. You pull it out of the bottom slot. You notice that the plastic
+		casing of the machine appears to be vibrating.
 	</actionText>
 </scene>
 
@@ -1326,9 +1158,6 @@
 	<p><entity>All is still.
 		<action goto="end">Continue</action>
 	</entity></p>
-</scene>
-
-<scene id="outsideOfficeLife">
 </scene>
 
 		<script src="js/siopa-engine.js"></script>

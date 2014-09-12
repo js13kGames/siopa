@@ -38,7 +38,7 @@ function beginWater(save){
 	}
 	siopa.activateScene('onDeck');
 	setTimeout(function(){
-		if(siopa.currentScene === 'onDeck' || siopa.currentScene === 'outHatch'){
+		if(siopa.currentScene === 'onDeck'){
 			siopa.activateScene('onDeck' + suffix);
 		}else{
 			siopa.activateScene('belowDeck' + suffix);
