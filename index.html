@@ -140,7 +140,6 @@
 <scene id="livingRoom">
 	<p>The lights flicker as you sit on a
 		<entity>plaid couch<!--
-			--><action off="pillow" turnon="pillow" show="pillow">Lift pillow</action><!--
 			--><action on="tornadoKnowledge" show="duckCouch">Duck behind couch</action><!--
 		--></entity>.
 	You look up and notice the
@@ -157,16 +156,9 @@
 		</entity>
 	to your right. The
 		<entity>front door
-			<action show="lookDoor">Look out door</action>
-			<action goto="porch" turnoff="inside" turnon="outside">Go out door</action>
+			<action goto="porch" turnoff="inside" turnon="outside">Go outside</action>
 		</entity>
 	is beside the window and across from the door the coat closet.</p>
-
-	<actionText name="pillow">
-		You pick up the pillow. A feather pokes through the satin fabric and
-		jabs your arm, but you cling to it as you carry it around the house
-		with you.	
-	</actionText>
 
 	<actionText name="duckCouch">
 		You lift several cushions off the couch and surround your body with
@@ -206,11 +198,6 @@
 		side of the house. The glass shatters, spraying shards across the
 		porch.
 	</actionText>
-
-	<actionText name="lookDoor">
-		Cracking open the door, you look outside. On the porch you notice the
-		rocking chair has tipped over.
-	</actionText>
 </scene>
 
 <scene id="porch">
@@ -218,9 +205,8 @@
 		<entity>rocking chair
 			<action off="rockingChair" turnon="rockingChair" show="rockingChair">Pick up</action>
 		</entity>
-	rattles. Beyond the porch, you see the
+	has fallen over, and is rattling in the wind. Beyond the porch, you see the
 		<entity>storm shelter<!--
-			--><action show="lookShelter">Look inside</action><!--
 			--><action goto="stormShelter" turnoff="outside" turnon="shelter">Go inside</action><!--
 		--></entity><!--
 	-->. It is an ugly mound of concrete and metal silhouetted against a pretty
@@ -237,18 +223,14 @@
 		again. The wind forces it to scoot across the wooden floor. The rocking
 		chair knocks against the banister, grating on your nerves.
 	</actionText>
-
-	<actionText name="lookShelter">
-		The door creaks as you twist the metal handle. It has been a long time
-		since you oiled the hinges. You glance down the steps. Dank air hits
-		you as you peer down into the small, dark space.
-	</actionText>
 </scene>
 
 <scene id="stormShelter">
-	<p>You quickly run down the steps. A collection of water bottles are gathered
-	in one corner. They are covered in grime. You glance back up at the stairs
-	as a sliver of gray sky pokes around the seams. Sighing, you realize the
+	<p>The door creaks as you twist the metal handle. It has been a long time
+	since you oiled the hinges. You quickly run down the steps. A collection of
+	water bottles are gathered in one corner. They are covered in grime. You
+	glance back up at the stairs as a sliver of gray sky pokes around the
+	seams. Sighing, you realize the
 		<entity>shelter door
 			<action show="closeShelterDoor">Close door</action>
 			<action goto="porch" turnoff="shelter" turnon="shelter">Exit shelter</action>
@@ -366,12 +348,10 @@
 	<p>The storm arises suddenly as a wave crashes over the bow of the ship.
 	Salt water splashes off the railing and hits you as you stand near the
 		<entity>wheel<!--
-			--><action off="grabWheel" turnon="grabWheel" show="grabWheel">Grab wheel</action><!--
-			--><action on="grabWheel" show="changeCourse">Change course</action><!--
+			--><action show="changeCourse">Change course</action><!--
 		--></entity><!--
 	-->. Torrential rain pounds against the boat. A
 		<entity>control panel
-			<action turnon="lookControl" show="lookControl">Look at</action>
 			<action on="lookControl" show="pressButton">Press button</action>
 		</entity>
 	in front of the wheel beeps loudly. Directly across from you are the
@@ -380,32 +360,17 @@
 		</entity>
 	and several
 		<entity>winches<!--
-			--><action on="wrapRope" turnon="pullRope" show="pullRope">Pull rope</action><!--
-			--><action on="pullRope" show="crankWinch">Crank winch</action><!--
+			--><action off="wrapRope" turnon="wrapRope" show="wrapRope">Wrap rope around winch</action><!--
+			--><action on="wrapRope" show="crankWinch">Crank winch</action><!--
 		--></entity><!--
 	-->.
 		<entity>Ropes
-			<action off="wrapRope" show="tugRope">Tug rope</action>
-			<action off="wrapRope" turnon="wrapRope" show="wrapRope">Wrap rope around winch</action>
 		</entity>
 	are carefully coiled beside the reels.</p>
 
-	<actionText name="grabWheel">
-		The boat pitches forward. You barely keep your footing on the slippery
-		deck as you grab the helm to keep from going overboard.
-	</actionText>
-
 	<actionText name="changeCourse">
-		Now in control of the helm, you spin the wheel rapidly. As you do, you
-		turn the boat into a wave and force her to climb over the crest.
-	</actionText>
-
-	<actionText name="lookControl">
-		Water droplets rush down the surface of the control panel. A blue
-			<entity>button
-				<action show="pressButton">Press button</action>
-			</entity>
-		is below the flashing screen.
+		You spin the wheel rapidly. As you do, you turn the boat into a wave
+		and force her to climb over the crest.
 	</actionText>
 
 	<actionText name="pressButton">
@@ -415,26 +380,16 @@
 		navigate correctly.
 	</actionText>
 
-	<actionText name="pullRope">
-		Once the rope is securely wound around the reel, you tug the rope until
-		the tension is too great for it to be effective.
-	</actionText>
-
-	<actionText name="crankWinch">
-		You pull out the wrench and place it in the socket on top of the
-		wrench. With the added leverage, you are able to control the sail
-		traveling up and down the mast.
-	</actionText>
-
-	<actionText name="tugRope">
-		Impulsively, you grab a rapidly uncoiling rope. You feel it tug and
-		burn your hands as you try to keep the unfurled sail steady.
-	</actionText>
-
 	<actionText name="wrapRope">
 		Noticing how unruly the sails are, you wrap the rope around the reel.
 		You hope the boom won’t continue ricocheting back and forth over the
 		cabin.
+	</actionText>
+
+	<actionText name="crankWinch">
+		You pull out the wrench and place it in the socket on top of the
+		winch. With the added leverage, you are able to control the rope
+		despite the heavy tension.
 	</actionText>
 </scene>
 
@@ -454,24 +409,20 @@
 	-->. The raincoat rests on the bench in front of the navigation table, which contains
 	a
 		<entity>map
-			<action off="openMap" turnon="openMap" show="openMap">Open map</action>
-			<action on="openMap" turnoff="openMap" show="returnMap">Return map</action>
+			<action show="openMap">Open map</action>
 		</entity>
 	and a
 		<entity>compass<!--
-			--><action off="lookCompass" turnon="lookCompass" show="lookCompass">Look at</action><!--
-			--><action on="lookCompass" turnoff="lookCompass" show="returnCompass">Return compass</action><!--
+			--><action show="lookCompass">Look at</action><!--
 		--></entity><!--
 	-->. A
 		<entity>radio
-			<action off="radioOn" turnon="radioOn" show="radioOn">Turn on</action>
-			<action on="radioOn" turnoff="radioOn" show="radioOff">Turn off</action>
+			<action show="radioOn">Turn on</action>
 		</entity>
 	hangs on the wall above the table. Water sloshes on the floor through the
 	front
 		<entity>hatch<!--
 			--><action off="closeHatch" turnon="closeHatch" show="closeHatch">Close hatch</action><!--
-			--><action on="closeHatch" turnoff="closeHatch" show="openHatch">Open hatch</action><!--
 		--></entity><!--
 	-->.</p>
 
@@ -511,20 +462,10 @@
 		You grit your teeth. Land should be nearby.
 	</actionText>
 
-	<actionText name="returnMap">
-		You toss the map back into the table. A wave strikes the side of the
-		boat, forcing the lid closed. It knocks your knuckles as it closes. You
-		rub your brushed hand.
-	</actionText>
-
 	<actionText name="lookCompass">
 		You lift the compass out of the table and shift it from side to side.
 		You feel a pang of regret as you recall that you have never learned how
 		to use it properly.
-	</actionText>
-
-	<actionText name="returnCompass">
-		You place the compass back in the table.
 	</actionText>
 
 	<actionText name="radioOn">
@@ -533,21 +474,10 @@
 		speaking into the handheld microphone. Nothing happens.
 	</actionText>
 
-	<actionText name="radioOff">
-		Unable to contact land or aid and feeling certain that no voice will
-		sound on your wire, you turn off the handset.
-	</actionText>
-
 	<actionText name="closeHatch">
 		You leap back as cold water crashes through the opening. Reaching up,
 		you grab the gray plastic handle and pull it down. You slip the latches
 		into place.
-	</actionText>
-
-	<actionText name="openHatch">
-		You open the hatch again since the air below deck is stuffy. Water
-		rolls through the opening and pours onto your head. You shudder because
-		you are completely drenched.
 	</actionText>
 </scene>
 
@@ -555,15 +485,15 @@
 	<p>You stare up at the sky as a wave surges in front of the bow. The sky
 	has never seemed farther away than it is now in the trough. Rain pounds
 	your face as you cling to the wheel and prepare to climb another wave. The
-	crest is too far away. You feel the boat tipping backwards. As the boat
-	begins to flip backward, the boom crashes to one side. It knocks your
-	shoulder, sending you flying over the railing. You plunge into the water.
-	The salt stings your eyes as you see the boat rudder leave the water near
-	your head.  The boat flips and drifts away from you as the ocean sweeps you
-	down the breaking wave. Sea water fills your lungs. It is vile and you want
-	to spit it out, but you know that will only hasten the inevitable. Your
-	limbs begin to feel cold as you are tossed below the water. The surface is
-	far away.  You reach for it as the air in your lungs burns and then
+	crest is too far away. As the boat begins to flip backward, the boom
+	crashes to one side. It knocks your shoulder, sending you flying over the
+	railing. You plunge into the water.  The salt stings your eyes as you see
+	the boat rudder leave the water near your head.  The boat flips and drifts
+	away from you as the ocean sweeps you down the breaking wave. Sea water
+	fills your lungs. It is vile and you want to spit it out, but you know that
+	will only hasten the inevitable. Your limbs begin to feel cold as you are
+	tossed below the water. The surface is far away.  You reach for it as the
+	air in your lungs burns and then
 		<entity>disappears<!--
 			--><action eval="complete('water')">Continue</action><!--
 		--></entity><!--
@@ -628,7 +558,6 @@
 	<p>You awake in the morning, snug and content in your obsidian and emerald
 		<entity>sleeping bag<!--
 			--><action off="outBag" turnon="outBag" show="outBag">Get out</action><!--
-			--><action on="outBag" off="rollBag" turnon="rollBag" show="rollBag">Roll up</action><!--
 		--></entity><!--
 	-->. Staring up at the ceiling of your
 		<entity>tent<!--
@@ -651,11 +580,6 @@
 		back. Stretching, you crawl out of your portable bed.
 	</actionText>
 
-	<actionText name="rollBag">
-		Kneeling down, you fold the sleeping bag. You crush the air out of the
-		bag as you roll it tightly together and slip the straps around it.
-	</actionText>
-
 	<actionText name="sweatPants">
 		You your dingy, gray sweatpants over your pajamas even though the
 		morning seems a little warmer than it should.
@@ -669,7 +593,7 @@
 <scene id="outsideTent">
 	<p>Unzipping the 
 		<entity>tent<!--
-			--><action off="takeApart" goto="inTent">Enter tent</action><!--
+			--><action goto="inTent">Enter tent</action><!--
 		--></entity><!--
 		-->’s flap, you step outside and stretch. The tent is stationed underneath a
 		<entity>tree<!--
@@ -684,11 +608,9 @@
 	-->. Beside that is your cooking
 		<entity>pot
 			<action on="lightFire" off="loadPot" show="cookBreakfast">Cook breakfast</action>
-			<action off="loadPot" on="unlocked" turnon="loadPot" show="loadPot">Load into jeep</action>
 		</entity>
 	and
 		<entity>cooler<!--
-			--><action off="loadCooler" turnon="emptyCooler" show="emptyCooler">Empty cooler</action><!--
 			--><action off="loadCooler" on="unlocked" turnon="loadCooler" show="loadCooler">Load into jeep</action><!--
 		--></entity><!--
 	-->. Parked beyond the campfire is your crimson
@@ -725,18 +647,6 @@
 	<actionText name="cookBreakfast">
 		The pot still has some leftover stew in it. You reheat it over the open
 		flames as your stomach grumbles.
-	</actionText>
-
-	<actionText name="loadPot">
-		Glancing at your watch, you notice the time and realize you need to be
-		going soon. You dump the remaining stew out of the pot and load it into
-		the trunk.
-	</actionText>
-
-	<actionText name="emptyCooler">
-		You glance inside the cooler. All of the ice has turned to water
-		overnight. Finding the plug at the bottom, you pop it open and release
-		the water. It drains onto the brittle soil.
 	</actionText>
 
 	<actionText name="loadCooler">
@@ -943,7 +853,6 @@
 	made of glass. The
 		<entity>window
 			<action show="lookWindow">Look out window</action>
-			<action show="touchWindow">Touch window</action>
 		</entity>
 	offers you a glimpse of the outside world during the day. At the end of the
 	hallway is a
@@ -958,14 +867,9 @@
 
 	<actionText name="lookWindow">
 		Looking out the window, you gaze at the large hill. Your office
-		building is built at the base of the rise.
-	</actionText>
-
-	<actionText name="touchWindow">
-		Absentmindedly, you touch the glass wall. You start and pull back. The
-		window is definitely trembling. Pausing, you focus to find out if there
-		are any other tremors. You hope that if there are it will be a minor
-		earthquake.
+		building is built at the base of the rise.  Absentmindedly, you touch
+		the glass wall. You start and pull back. The window is definitely
+		trembling.
 	</actionText>
 
 	<actionText name="getDrink">
@@ -984,7 +888,6 @@
 	deep breath. It is a lovely day. Near the office is
 		<entity>bench<!--
 			--><action show="sitBench">Sit on bench</action><!--
-			--><action on="quakeKnowledge" show="duckBench">Duck under bench</action><!--
 		--></entity><!--
 	-->. It is surrounded by trees and one of your favorite spots to
 		<entity>eat lunch<!--
@@ -1013,25 +916,20 @@
 		Opening the bag, you pull out your club sandwich. A piece of lettuce
 		falls on your lap as you savor a big bite.
 	</actionText>
-
-	<actionText name="duckBench">
-		Frightened by the sudden change in the landscape around you, you duck behind the bench.
-	</actionText>
 </scene>
 
 <scene id="inOfficeDeath">
-	<p>A large tremor ripples through the entire office. You are thrown to your
-	knees. Shaken and jarred, you manage to get up as more waves strike the
-	building. The outer wall begins to buckle and the glass breaks. You hurry
-	down the hallway, avoiding the falling shards. A crack appears in the floor
-	in front of you. The carpet makes a sickening scream as the concrete below
-	it pushes up through the tough fibers. Skidding to a halt, you are thrown
-	forward. Filing cabinets line the nearby wall. One tips as the uneven floor
-	shatters beneath it. You have just enough time to put your hands up to
-	guard your head before the heavy metal case crashes against you. You are
-	pinned against the floor. One of your arms is broken. Pain grips your mind.
-	Looking around, you notice a jagged aperture travel up the wall and across
-	the ceiling. The roof begins
+	<p>A large tremor ripples through the entire office. Shaken and jarred, you
+	notice the outer wall begin to buckle and the glass breaks. You hurry down
+	the hallway, avoiding the falling shards. A crack appears in front of you.
+	The carpet makes a sickening scream as the concrete below it pushes up
+	through the tough fibers. Skidding to a halt, you are thrown forward.
+	Filing cabinets line the nearby wall. One tips as the uneven floor shatters
+	beneath it. You have just enough time to put your hands up to guard your
+	head before the heavy metal case crashes against you. Now pinned to the
+	floor, you realize your arm is broken. Pain grips your mind.  Looking
+	around, you notice a jagged aperture travel up the wall and across the
+	ceiling. The roof begins
 		<entity>to crumble<!--
 			--><action eval="complete('earth')">Continue</action><!--
 		--></entity><!--
@@ -1040,16 +938,15 @@
 
 <scene id="outsideOfficeDeath">
 	<p>To your horror, the ground around you rises and falls like ocean waves.
-	Letting out a terrible sigh, the ground suddenly bursts and sprays dirt,
-	rocks, and plants into the air. Backing away, you duck behind the trees
-	surrounding the bench. Dust covers you. Spitting, you try to get the
-	sediment out of your mouth as you rub your eyes and smear more dirt into
-	your skin. Something rumbles nearby. Looking up, you see the hill by your
-	office building appears to roll forward. Trees, buildings, and anything in
-	its path are demolished and carried with it. Turning, you start running as
-	quickly as you can, but the earth soon casts a shadow over your form. The
-	landslide rushes toward you. Sunlight disappears as black, brown, and gray
-	soil drops
+	Letting out a terrible sigh, the ground suddenly bursts. Backing away, you
+	duck behind the trees surrounding the bench. Dust covers you. Spitting, you
+	try to get the sediment out of your mouth as you rub your eyes and smear
+	more dirt into your skin. Something rumbles nearby. Looking up, you see the
+	hill by your office building roll forward. Trees, buildings, and anything
+	in its path are demolished and carried with it. Turning, you start running
+	as quickly as you can, but the earth soon casts a shadow over your form.
+	The landslide rushes toward you. Sunlight disappears as black, brown, and
+	gray soil drops
 		<entity>around you<!--
 			--><action eval="complete('earth')">Continue</action><!--
 		--></entity><!--
