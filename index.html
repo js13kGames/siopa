@@ -6,48 +6,33 @@
 	<body>
 
 <scene id="start">
-	<p>Even with all our technology and the inventions that make modern life so
+	<p style="margin-bottom: 35px;">Even with all our technology and the inventions that make modern life so
 	much easier than it once was, it takes just one big natural disaster to
 	wipe all that away and remind us that, here on Earth, we're still at the
-		<entity>mercy of nature<!--
-			--><action off="quote1" turnon="quote1">Continue</action><!--
-		--></entity><!--
-	-->.<br>
+	mercy of nature.<br>
 	<span style="margin-left: 20px">&ndash; Neil deGrasse Tyson</span></p>
 
-	<require on="quote1">
-		<p>"Be a Man!" Said I, "You are scared out of your wits! What good is
-		religion if it collapses under calamity? Think of what earthquakes and
-		floods, wars and volcanoes, have done before to men! Did you think God had
-		exempted Weybridge? He is not an
-			<entity>insurance agent<!--
-				--><action off="quote2" turnon="quote2">Continue</action><!--
-			--></entity><!--
-		-->."<br>
-		<span style="margin-left: 20px">&ndash; H. G. Wells, <i>The War of the Worlds</i></span></p>
-	</require>
+	<p style="margin-bottom: 35px;">"Be a Man!" Said I, "You are scared out of your wits! What good is
+	religion if it collapses under calamity? Think of what earthquakes and
+	floods, wars and volcanoes, have done before to men! Did you think God had
+	exempted Weybridge? He is not an insurance agent."<br>
+	<span style="margin-left: 20px">&ndash; H. G. Wells, <i>The War of the Worlds</i></span></p>
 
-	<require on="quote2">
-		<p>But soon a fierce storm came up. High waves were breaking into the boat,
-		and it began to fill with water. Jesus was sleeping at the back of the
-		boat with his head on a cushion. The disciples woke him up, shouting,
-		"Teacher, don’t you care that
-			<entity>we're going to drown<!--
-				--><action goto="selection">Continue</action><!--
-			--></entity><!--
-		-->?"<br>
-		<span style="margin-left: 20px">&ndash; The Gospel of Mark</span></p>
-	</require>
+	<p>But soon a fierce storm came up. High waves were breaking into the boat,
+	and it began to fill with water. Jesus was sleeping at the back of the
+	boat with his head on a cushion. The disciples woke him up, shouting,
+	"Teacher, don’t you care that
+		<entity>we're going to drown<!--
+			--><action goto="selection">Continue</action><!--
+		--></entity><!--
+	-->?"<br>
+	<span style="margin-left: 20px">&ndash; The Gospel of Mark</span></p>
 
 </scene>
 
 <scene id="selection">
-		<require off="completedOne">
-			<p>Select an element:</p>
-		</require>
-		<require on="completedOne">
-			<p>Select another element:</p>
-		</require>
+		<p id="prompt">Select an element:</p>
+
 		<div style="margin-left: 50px;">
 			<p><entity>Air
 				<action off="airComplete" eval="beginAir();">Begin</action>
@@ -941,7 +926,10 @@
 </scene>
 
 <scene id="hallway">
-	<p>You step into the hallway. A string of cubicles run along it. You are
+	<p>You step into the hallway. A string of
+		<entity>cubicles
+			<action goto="inCubical">Enter cubical</action>
+		</entity>run along it. You are
 	fortunate enough to have one that faces the outer wall, which is completely
 	made of glass. The
 		<entity>window
@@ -979,33 +967,32 @@
 </scene>
 
 <scene id="outside">
-	<p>Stepping outside, you blink back tears. It is a
-		<entity>very bright
-			<action off="veryBright" turnon="veryBright">Look around</action>
-		</entity>
-	afternoon.</p>
+	<p>Stepping through the
+		<entity>door<!--
+			--><action goto="hallway">Go inside</action><!--
+		--></entity><!--
+	-->, you blink back tears. It is a very bright afternoon.  You take in a
+	deep breath. It is a lovely day. Near the office is
+		<entity>bench<!--
+			--><action show="sitBench">Sit on bench</action><!--
+			--><action on="quakeKnowledge" show="duckBench">Duck under bench</action><!--
+		--></entity><!--
+	-->. It is surrounded by trees and one of your favorite spots to
+		<entity>eat lunch<!--
+				--><action on="takeLunch" off="eatLunch" turnon="eatLunch" show="eatLunch">Eat lunch</action><!--
+		--></entity><!--
+	-->.</p>
 
-	<require on="veryBright">
-		<p>You take in a deep breath. It is a lovely day. Near the office is
-			<entity>bench<!--
-				--><action off="sitBench" turnon="sitBench" show="sitBench">Sit on bench</action><!--
-				--><action on="quakeKnowledge" show="duckBench">Duck under bench</action><!--
-			--></entity><!--
-		-->. It is surrounded by trees and one of your favorite spots to eat
-		lunch.</p>
-	</require>
-
-	<require on="sitBench">
+	<actionText name="sitBench">
 		<p>Taking a seat on the
 			<entity>wooden bench<!--
-				--><action on="takeLunch" off="eatLunch" turnon="eatLunch" show="eatLunch">Eat lunch</action><!--
 			--></entity><!--
 		-->, you take time to
 			<entity>look around
-				<action on="sitBench" turnon="quakeKnowledge" show="lookBench">Look around</action>
+				<action turnon="quakeKnowledge" show="lookBench">Look around</action>
 			</entity>
 		and enjoy the beautiful, hilly terrain surrounding the city.</p>
-	</require>
+	</actionText>
 
 	<actionText name="lookBench">
 		The hairs on your neck rise as a rumbling sound descends from the crest

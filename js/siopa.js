@@ -109,6 +109,7 @@ function complete(element){
 			&& siopa.states['earthComplete']){
 		siopa.activateScene('selectionFinal');
 	}else{
+		document.getElementById('prompt').innerHTML = 'Select another element:'
 		siopa.activateScene('selection');
 	}
 }

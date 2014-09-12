@@ -74,7 +74,6 @@ function Siopa(startID){
 					siopa.states[offs[i]] = false;
 				}
 			}
-			siopa.updateRequireBlocks();
 			siopa.updateActionColors();
 
 			var to = action.getAttribute('goto');
@@ -103,22 +102,6 @@ Siopa.prototype.activateScene = function(sceneID){
 		document.body.removeChild(this.menu);
 	}
 };
-
-Siopa.prototype.updateRequireBlocks = function(){
-	var requires = this.sceneBox.getElementsByTagName('require');
-	for(var i = 0; i < requires.length; i++){
-		var require = requires[i];
-		var on = require.getAttribute('on');
-		var off = require.getAttribute('off');
-		if(on &&!this.states[on]){
-			require.style.display = 'none';
-		}else if(off && this.states[off]){
-			require.style.display = 'none';
-		}else{
-			require.style.display = 'block';
-		}
-	}
-}
 
 Siopa.prototype.isActionActive = function(action){
 	var on = action.getAttribute('on');
