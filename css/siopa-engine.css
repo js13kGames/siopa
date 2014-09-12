@@ -23,9 +23,10 @@ scene{
 	display: none;
 }
 
-entity{
+entity, a{
 	color: #449;
 	cursor: pointer;
+	text-decoration: none;
 }
 entity:hover{
 	color: #44c;

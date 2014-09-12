@@ -95,7 +95,6 @@ function Siopa(startID){
 Siopa.prototype.activateScene = function(sceneID){
 	var scene = document.getElementById(sceneID);
 	this.sceneBox.innerHTML = scene.innerHTML;
-	this.updateRequireBlocks();
 	this.updateActionColors();
 	this.currentScene = sceneID;
 	if(this.menu){
