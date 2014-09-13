@@ -33,8 +33,8 @@ function Siopa(startID){
 			document.body.appendChild(menu);
 
 			var menuRect = menu.getBoundingClientRect();
-			menu.style.left = event.clientX - .5*menuRect.width;
-			menu.style.top = event.clientY;
+			menu.style.left = Math.floor(event.clientX - .5*menuRect.width) + 'px';
+			menu.style.top = Math.floor(event.clientY) + 'px';
 
 			siopa.menu = menu;
 		}
