@@ -39,5 +39,7 @@ version.
 Richard Schnedier (me) came up with the original idea and design of the game,
 programmed the Siopa engine, and marked up the writing with the Siopa tags.
 Nicholas Ken Capils did the writing and level design. Thanks to our
-playtesters, and particularly our
-fellow String Trees compatriot [Jacsn](https://jacsn.net).
+playtesters, and particularly our fellow String Trees compatriot
+[Jacsn](https://jacsn.net).
+
+I'm
