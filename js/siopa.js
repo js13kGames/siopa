@@ -6,32 +6,23 @@ function load(){
 }
 
 function beginAir(save){
-	var time = 1000*60*1.5;
-	if(save){
-		time = 1000*45;
-	}
 	var suffix = 'Death';
 	if(save){
 		suffix = 'Life';
 	}
 	siopa.activateScene('livingRoom');
-	siopa.states['inside'] = true;
 	setTimeout(function(){
-		if(siopa.states['inside']){
-			siopa.activateScene('inside' + suffix);
-		}else if(siopa.states['outside']){
+		if(siopa.currentScene ==='porch'){
 			siopa.activateScene('outside' + suffix);
-		}else if(siopa.states['shelter']){
+		}else if(siopa.currentScene === 'stormShelter'){
 			siopa.activateScene('shelter' + suffix);
+		}else{
+			siopa.activateScene('inside' + suffix);
 		}
-	}, time);
+	}, 1000*60);
 }
 
 function beginWater(save){
-	var time = 1000*60*1.5;
-	if(save){
-		time = 1000*45;
-	}
 	var suffix = 'Death';
 	if(save){
 		suffix = 'Life';
@@ -43,16 +34,12 @@ function beginWater(save){
 		}else{
 			siopa.activateScene('belowDeck' + suffix);
 		}
-	}, time);
+	}, 1000*60);
 }
 
 var fireTimer;
 var fireSave;
 function beginFire(save){
-	var time = 1000*60*1.5;
-	if(save){
-		time = 1000*45;
-	}
 	var suffix = 'Death';
 	if(save){
 		suffix = 'Life';
@@ -65,7 +52,7 @@ function beginFire(save){
 		}else{
 			siopa.activateScene('smoke' + suffix);
 		}
-	}, time);
+	}, 1000*60);
 }
 function explodeJeep(){
 	clearTimeout(fireTimer);
@@ -77,10 +64,6 @@ function explodeJeep(){
 }
 
 function beginEarth(save){
-	var time = 1000*60*1.5;
-	if(save){
-		time = 1000*45;
-	}
 	var suffix = 'Death';
 	if(save){
 		suffix = 'Life';
@@ -92,7 +75,7 @@ function beginEarth(save){
 		}else{
 			siopa.activateScene('outsideOffice' + suffix);
 		}
-	}, time);
+	}, 1000*60);
 }
 
 function complete(element){
