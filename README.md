@@ -16,7 +16,7 @@ custom tags parsed by the Siopa engine. The engine itself is located at
 `js/siopa-engine.js`. Scripts specific to Siopa, that work alongside and with
 the engine, are located at `js/siopa.js`. Styles for the engine (some of which,
 especially the `display: none`s, integral to the engine's operation) are located
-at `css/siopa=engine.css`.
+at `css/siopa-engine.css`.
 
 The `dist` folder contains compressed and uncompressed versions of the minified
 game as submitted to Js13kGames. Minification involved running the JS through
@@ -30,13 +30,14 @@ included in the final submission. The `archive` folder contains copies of the
 game with various amounts of additional content. Note that these files will
 only work with older (non-cut) versions of the JS files, which are contained in
 the repo history but aren't in the current tree. After the competition, I will
-probably get them to an easily playable state directly in the repo--but while
+probably get them to an easily playable state directly in the repo&mdash;but while
 the competition is going on, I feel the focus should be on the 13 KB entry
 version.
 
 ##Credits
 
 Richard Schnedier (me) came up with the original idea and design of the game,
-programmed the Siopa engine, and marked up the textual content. Nicholas Ken Capils
-did the writing and level design. Thanks to our playtesters, and particularly our
+programmed the Siopa engine, and marked up the writing with the Siopa tags.
+Nicholas Ken Capils did the writing and level design. Thanks to our
+playtesters, and particularly our
 fellow String Trees compatriot [Jacsn](https://jacsn.net).
