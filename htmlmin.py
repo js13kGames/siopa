@@ -1,6 +1,6 @@
 import re
 
-data = open('index-brutal-asm.html').read()
+data = open('index-asm.html').read()
 
 """
 mini = re.sub('<script src="js/siopa-engine.js"></script>', '', data)
@@ -13,4 +13,4 @@ mini = re.sub('[\n]', '', data)
 mini = re.sub('[\t]', ' ', mini)
 mini = re.sub(' +', ' ', mini)
 mini = re.sub('<!-- -->', '', mini)
-open('index-brutal-final.html', 'w').write(mini)
+open('index-final.html', 'w').write(mini)
