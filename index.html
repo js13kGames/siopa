@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<title>Siopa</title>
 		<link rel="stylesheet" href="css/siopa-engine.css">
 	</head>
 	<body>
@@ -27,7 +28,6 @@
 		--></entity><!--
 	-->?"<br>
 	<span style="margin-left: 20px">&ndash; The Gospel of Mark</span></p>
-
 </scene>
 
 <scene id="selection">
@@ -156,9 +156,9 @@
 		</entity>
 	to your right. The
 		<entity>front door
-			<action goto="porch" turnoff="inside" turnon="outside">Go outside</action>
+			<action goto="porch">Go outside</action>
 		</entity>
-	is beside the window and across from the door the coat closet.</p>
+	is beside the window, and across from the door is the coat closet.</p>
 
 	<actionText name="duckCouch">
 		You lift several cushions off the couch and surround your body with
@@ -171,7 +171,7 @@
 		flickers to life. The local news broadcaster sits behind his desk. A
 		weather map swirls behind him. As you peer closer, you hear the man
 		say, "A tornado has just touched on the ground. Please take shelter
-		immediately if you are…." The list of nearby towns includes yours.
+		immediately if you are..." The list of nearby towns includes yours.
 	</actionText>
 
 	<actionText name="televisionOff">
@@ -214,7 +214,7 @@
 
 	<p>Behind you, the
 		<entity>front door
-			<action goto="livingRoom" turnoff="outside" turnon="inside">Go inside</action>
+			<action goto="livingRoom">Go inside</action>
 		</entity>
 	remains open.</p>
 
@@ -228,12 +228,12 @@
 <scene id="stormShelter">
 	<p>The door creaks as you twist the metal handle. It has been a long time
 	since you oiled the hinges. You quickly run down the steps. A collection of
-	water bottles are gathered in one corner. They are covered in grime. You
-	glance back up at the stairs as a sliver of gray sky pokes around the
-	seams. Sighing, you realize the
+	water bottles are gathered in one corner, covered in grime. You glance back
+	up at the stairs as a sliver of gray sky pokes around the seams. Sighing,
+	you realize the
 		<entity>shelter door
 			<action show="closeShelterDoor">Close door</action>
-			<action goto="porch" turnoff="shelter" turnon="shelter">Exit shelter</action>
+			<action goto="porch">Exit shelter</action>
 		</entity>
 	did not quite shut behind you.</p>
 
@@ -274,15 +274,15 @@
 
 <scene id="shelterDeath">
 	<p>Wind forces the shelter door open before you can yank it shut. Debris
-	flies through the air so you quickly retreat back against the metal wall.
-	There is an awful ripping sound all around you. As you look up at the
-	entrance, a tree strikes the storm shelter and causes the walls around the
-	door to buckle. The wind whips around the tree, shifting it. A branch
-	suddenly juts into the room as the tree is shifted by the tornado. The limb
-	strikes you in the stomach. You topple backwards and touch your stomach.
-	When you remove your hand it is covered in scarlet. Your surroundings begin
-	to fade away as your mind is
-		<entity>number by pain<!--
+	flies through the air, forcing you back against the metal wall. There is an
+	awful ripping sound all around you. As you look up at the entrance, a tree
+	strikes the storm shelter and causes the walls around the door to buckle.
+	The wind whips around the tree, shifting it. A branch suddenly juts into
+	the room as the tree is shifted by the tornado. The limb strikes you in the
+	stomach. You topple backwards and touch your stomach.  When you remove your
+	hand it is covered in scarlet. Your surroundings begin to fade away as your
+	mind is
+		<entity>numbed by pain<!--
 			--><action eval="complete('air')">Continue</action><!--
 		--></entity><!--
 	-->.</p>
@@ -395,19 +395,13 @@
 
 <scene id="belowDeck">
 	<p>You clutch the railing as you go down into the salon. On the port side
-	is the kitchen. A
-		<entity>bottle
-			<action off="bottleAway" turnon="bottleAway" show="bottleAway">Put away</action>
-			<action off="bottleAway" turnon="openBottle" show="openBottle">Open bottle</action>
-		</entity>
-	rolls around on the granite counter. On the other side of the salon a
-	vibrant yellow catches your eye. It is your
+	is the kitchen. A bottle rolls around on the granite counter. On the other
+	side of the salon a vibrant yellow catches your eye. It is your
 		<entity>jacket<!--
 			--><action off="jacketOn" turnon="jacketOn" show="jacketOn">Put on</action><!--
 			--><action on="jacketOn" show="handPocket">Stick hand in pocket</action><!--
 		--></entity><!--
-	-->. The raincoat rests on the bench in front of the navigation table, which contains
-	a
+	-->. The raincoat rests on the bench in front of the navigation table, which contains a
 		<entity>map
 			<action show="openMap">Open map</action>
 		</entity>
@@ -432,18 +426,6 @@
 		</entity>
 	leads up.</p>
 
-	<actionText name="bottleAway">
-		The bouncing bottle is making you a nervous wreck. You grab the bottle,
-		open a cabinet, and throw it inside. Satisfied that it is out of the
-		way now, you return your attention to more pressing matters.
-	</actionText>
-
-	<actionText name="openBottle">
-		Feeling sick, you glance down at the label. The plastic bottle contains
-		Dramamine. You quickly pull the lid off and swallow a pill before
-		popping the lid back into place.
-	</actionText>
-
 	<actionText name="jacketOn">
 		Even though you are fairly soaked, you put on your rain jacket. The old
 		zipper snags before closing. You secure the hood on top of your head.
@@ -464,8 +446,8 @@
 
 	<actionText name="lookCompass">
 		You lift the compass out of the table and shift it from side to side.
-		You feel a pang of regret as you recall that you have never learned how
-		to use it properly.
+		You feel a pang of regret as you recall that you never learned how to
+		use it properly.
 	</actionText>
 
 	<actionText name="radioOn">
@@ -675,19 +657,6 @@
 	from the campsite.
 </scene>
 
-<scene id="branchDeath">
-	<p>Flames leap and hiss between the trees. You look around as the forest
-	blazes in crimson, scarlet, goldenrod, and ochre hues. The air shimmers and
-	waves in the intense heat. Just as your mind comprehends your dire
-	situation, you hear a terrible pop and crack. Looking up, you have just
-	enough time to realize that a hefty limb is hurtling toward you. Unable to
-	react, you are trapped beneath the heavy branch as the fire starts to
-		<entity>sear your skin<!--
-			--><action eval="complete('fire')">Continue</action><!--
-		--></entity><!--
-	-->.</p>
-</scene>
-
 <scene id="smokeDeath">
 	<p>You begin to feel dizzy as you look around the campsite. The air buckles
 	and dances like a mirage. It feels like you are standing in a furnace.
@@ -715,24 +684,6 @@
 			--><action eval="complete('fire')">Continue</action><!--
 		--></entity><!--
 	-->.</p>
-</scene>
-
-<scene id="branchLife">
-	<p>There is a cackling, spitting sound above you. Looking up, you see the tree
-	is fully ablaze and beginning to split apart. The tree trembles and then
-	groans, sending a spray of sparks into the air as half of the trunk falls
-	toward you. As you stare, rooted to the spot, you feel yourself tip
-	backwards. To your surprise, you are looking up into the face of a complete
-	stranger. Slowly, you realize he has just saved you from the fallen limb.</p>
-
-	<p>"You are safe now."</p>
-
-	<p>Protected by this stranger, you cannot help but believe that if you stay
-	with him then that is completely true.</p>
-
-	<p><entity>All is still.
-		<action goto="end">Continue</action>
-	</entity></p>
 </scene>
 
 <scene id="smokeLife">
@@ -764,7 +715,7 @@
 
 	<p>"Trust me to drive," the man suddenly tells you.</p>
 
-	<p>Assured by his calm tone, you break the jeep and let him have the
+	<p>Assured by his calm tone, you brake the jeep and let him have the
 	driver’s seat. As the jeep sets off again, you realize he is driving
 	patiently through the woods. The fire soon surrounds the vehicle and heats
 	the air like a furnace. Flames spit and hiss, but they do not touch the
@@ -788,16 +739,12 @@
 			<action show="notebookFlip">Flip through notebook</action>
 			<action off="notebookTear" turnon="notebookTear" show="notebookTear">Tear out page</action>
 		</entity>
-	next to the keyboard. Sitting on top of one of the
-		<entity>filing cabinets
-			<action off="retrieveFile" turnon="retrieveFile" show="retrieveFile">Retrieve file</action>
-			<action off="reorderFiles" turnon="reorderFiles" show="reorderFiles">Reorder files</action>
-		</entity>
-	is your stained, purple
-		<entity>lunch bag<!--
-			--><action off="takeLunch" turnon="takeLunch" show="takeLunch">Take lunch bag</action><!--
+	next to the keyboard. Nearby are a couple large
+		<entity>filing cabinets<!--
+			--><action off="retrieveFile" turnon="retrieveFile" show="retrieveFile">Retrieve file</action><!--
+			--><action off="reorderFiles" turnon="reorderFiles" show="reorderFiles">Reorder files</action><!--
 		--></entity><!--
-	-->. To your left is a
+	-->, and to your left is a	
 		<entity>hallway<!--
 			--><action goto="hallway">Leave cubical</action><!--
 		--></entity><!--
@@ -826,12 +773,6 @@
 		are out of alphabetical order. You quickly reorganize them.
 	</actionText>
 
-	<actionText name="takeLunch">
-		You pull the purple bag off the top of the cabinet. You have had the
-		lunchbox since you were in middle school. It reminds you of when your
-		mother used to pack your lunches for school.
-	</actionText>
-
 	<actionText name="notebookFlip">
 		Flipping through the pages, you come to the latest series of notes.
 		They are minutes from your most recent office meeting about the newest
@@ -848,7 +789,7 @@
 	<p>You step into the hallway. A string of
 		<entity>cubicles
 			<action goto="inCubical">Enter cubical</action>
-		</entity>run along it. You are
+		</entity>runs along it. You are
 	fortunate enough to have one that faces the outer wall, which is completely
 	made of glass. The
 		<entity>window
@@ -884,16 +825,12 @@
 		<entity>door<!--
 			--><action goto="hallway">Go inside</action><!--
 		--></entity><!--
-	-->, you blink back tears. It is a very bright afternoon.  You take in a
-	deep breath. It is a lovely day. Near the office is
+	-->, you blink back tears. It is a very bright afternoon. You take in a
+	deep breath. It is a lovely day. Near the office is a
 		<entity>bench<!--
 			--><action show="sitBench">Sit on bench</action><!--
 		--></entity><!--
-	-->. It is surrounded by trees and one of your favorite spots to
-		<entity>eat lunch<!--
-				--><action on="takeLunch" off="eatLunch" turnon="eatLunch" show="eatLunch">Eat lunch</action><!--
-		--></entity><!--
-	-->.</p>
+	-->. It is surrounded by trees and is one of your favorite spots to eat lunch.</p>
 
 	<actionText name="sitBench">
 		<p>Taking a seat on the
@@ -910,11 +847,6 @@
 		The hairs on your neck rise as a rumbling sound descends from the crest
 		of the nearby hill. A tremor passes under your feet and a fissure opens
 		in the ground a few yards away.
-	</actionText>
-
-	<actionText name="eatLunch">
-		Opening the bag, you pull out your club sandwich. A piece of lettuce
-		falls on your lap as you savor a big bite.
 	</actionText>
 </scene>
 
