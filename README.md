@@ -20,19 +20,20 @@ at `css/siopa-engine.css`.
 
 The `dist` folder contains compressed and uncompressed versions of the minified
 game as submitted to Js13kGames. Minification involved running the JS through
-uglifyjs and CSS through uglifycss, moving the code into inline blocks, and
+uglifyjs and CSS through uglifycss, moving the code into inline blocks,
+manually shortening Siopa custom tag names via find-replace (yeah...) and
 running the whole HTML file through the simple custom HTML minifier
-`htmlmin.py`, located in the repo root.
+`htmlmin.py`, located in the repo root. The process should have been entirely
+automated, but I it until close to the deadline.
 
-The final compressed version weighs in at 13,311 bytes, or one byte shy of
-exactly 13 kilobytes. Much more material was written for the game than was
-included in the final submission. The `archive` folder contains copies of the
-game with various amounts of additional content. Note that these files will
-only work with older (non-cut) versions of the JS files, which are contained in
-the repo history but aren't in the current tree. After the competition, I will
-probably get them to an easily playable state directly in the repo&mdash;but while
-the competition is going on, I feel the focus should be on the 13 KB entry
-version.
+The final compressed version weighs in at 13,256 bytes. Much more material was
+written for the game than was included in the final submission. The `archive`
+folder contains copies of the game with various amounts of additional content.
+Note that these files will only work with older (non-cut) versions of the JS
+files, which are contained in the repo history but aren't in the current tree.
+After the competition, I will probably get them to an easily playable state
+directly in the repo&mdash;but while the competition is going on, I feel the
+focus should be on the 13 KB entry version.
 
 ##Credits
 
