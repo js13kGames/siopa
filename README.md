@@ -1,7 +1,7 @@
 #Welcome
 
 Siopa is an experimental text adventure created for the 2014 [Js13kGames
-competition]. We hope you enjoy it!
+competition](http://js13kgames.com/). We hope you enjoy it!
 
 ##Playing
 
@@ -20,9 +20,9 @@ at `css/siopa=engine.css`.
 
 The `dist` folder contains compressed and uncompressed versions of the minified
 game as submitted to Js13kGames. Minification involved running the JS through
-uglifyjs and CSS through uglifycss, moving the code into inline <script> and
-<style> blocks, and running the whole HTML file through the simple custom HTML
-minifier `htmlmin.py`, located in the repo root.
+uglifyjs and CSS through uglifycss, moving the code into inline blocks, and
+running the whole HTML file through the simple custom HTML minifier
+`htmlmin.py`, located in the repo root.
 
 The final compressed version weighs in at 13,311 bytes, or one byte shy of
 exactly 13 kilobytes. Much more material was written for the game than was
